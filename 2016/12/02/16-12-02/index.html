@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://new.chongblog.com/images/hexo-version.png">
 <meta property="og:image" content="http://new.chongblog.com/images/github-pages.png">
 <meta property="og:image" content="http://new.chongblog.com/images/home.png">
-<meta property="og:updated_time" content="2016-12-02T16:41:01.930Z">
+<meta property="og:updated_time" content="2016-12-02T16:45:05.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构建hexo+github博客">
 <meta name="twitter:description" content="一直以来很想将chongblog转移到github静态页面上，因为wordpress的富文本编辑器不太喜欢，还是喜欢在sublime的敲。今天闲下来心一横就开始了
@@ -293,7 +293,7 @@
 theme: next
 </code></pre><p>打开F:\hexo-blog\blog\themes\next文件找到_config.yml根据官方文档进行主题设置<br>再次静态化打包，本地发布<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure><br>浏览器输入 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 就能预览项目了</p>
 <h3 id="2-2-3-部署到github上"><a href="#2-2-3-部署到github上" class="headerlink" title="2.2.3 部署到github上"></a>2.2.3 部署到github上</h3><p>在github中创建一个项目hexo-blog<br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># github部署设置</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: http://github.com/chong0808/hexo-blog.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure><br>然后，通过命令进行部署。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><br>静态的web网站就被部署到了github<br>在这个过程中遇到了问题 报错<br>    error ：deploy not found git<br>此时需要的是在终端输入<br>    $  cnpm install hexo-deployer-git –save<br>在发布，发布期间会比较慢<br>发布完成之后回到github上<br>在setting中的GitHub Pages选项中的<br><img src="/images/github-pages.png" width="400" height="600" title="github-pages"><br>设置成master branch选项<br>在浏览器中打开<a href="https://chong0808.github.io/hexo-blog/" target="_blank" rel="external">https://chong0808.github.io/hexo-blog/</a><br><img src="/images/home.png" width="400" height="600" title="home"><br>样式错乱css和js的加载路径不对<br>接下来，配置好域名，这个路径就会正确的</p>
-<h3 id="2-2-4-配置域名"><a href="#2-2-4-配置域名" class="headerlink" title="2.2.4 配置域名"></a>2.2.4 配置域名</h3><h4 id="主域名绑定"><a href="#主域名绑定" class="headerlink" title="主域名绑定"></a>主域名绑定</h4><p>在dnspod控制台，设置主机记录@，类型A，到IP 192.30.252.153。<br>大概等几分钟会生效。判断生效，对域名执行ping或者dig命令。<br>在github项目中，新建一个文件CNAME，文件中写出你要绑定的域名www.new.chongblog.com。<br>通过浏览器，访问www.new.chongblog.com，就打开了我们建好的博客站点。</p>
+<h3 id="2-2-4-配置域名"><a href="#2-2-4-配置域名" class="headerlink" title="2.2.4 配置域名"></a>2.2.4 配置域名</h3><h4 id="主域名绑定"><a href="#主域名绑定" class="headerlink" title="主域名绑定"></a>主域名绑定</h4><p>在dnspod控制台，设置主机记录@，类型A，到IP 192.30.252.153。<br>大概等几分钟会生效。判断生效，对域名执行ping或者dig命令。<br>在github项目中，新建一个文件CNAME，文件中写出你要绑定的域名<a href="http://new.chongblog.com/。">http://new.chongblog.com/。</a><br>通过浏览器，访问www.new.chongblog.com，就打开了我们建好的博客站点。</p>
 
       
     </div>
@@ -374,7 +374,7 @@ theme: next
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/logo.PNG"
+               src="/images/logo.png"
                alt="假装正在输入" />
           <p class="site-author-name" itemprop="name">假装正在输入</p>
           <p class="site-description motion-element" itemprop="description">Jser\nodejs\C\Python\知名扯淡专家\资深渣渣前端er</p>
