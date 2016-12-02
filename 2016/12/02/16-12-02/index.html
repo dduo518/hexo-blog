@@ -1,0 +1,583 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="z_chong" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/bitbug_favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一直以来很想将chongblog转移到github静态页面上，因为wordpress的富文本编辑器不太喜欢，还是喜欢在sublime的敲。今天闲下来心一横就开始了
+前言点击全文查看吧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="构建hexo+github博客">
+<meta property="og:url" content="http://new.chongblog.com/2016/12/02/16-12-02/index.html">
+<meta property="og:site_name" content="苟且">
+<meta property="og:description" content="一直以来很想将chongblog转移到github静态页面上，因为wordpress的富文本编辑器不太喜欢，还是喜欢在sublime的敲。今天闲下来心一横就开始了
+前言点击全文查看吧">
+<meta property="og:image" content="http://new.chongblog.com/images/hexo-version.png">
+<meta property="og:updated_time" content="2016-12-02T16:23:12.377Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="构建hexo+github博客">
+<meta name="twitter:description" content="一直以来很想将chongblog转移到github静态页面上，因为wordpress的富文本编辑器不太喜欢，还是喜欢在sublime的敲。今天闲下来心一横就开始了
+前言点击全文查看吧">
+<meta name="twitter:image" content="http://new.chongblog.com/images/hexo-version.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 构建hexo+github博客 | 苟且 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">苟且</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">敬畏技术、拓展知识、见微知著</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                构建hexo+github博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-02T22:44:12+08:00" content="2016-12-02">
+              2016-12-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/02/16-12-02/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/16-12-02/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一直以来很想将<a href="http://www.chongblog.com" title="chongblog" target="_blank" rel="external">chongblog</a><br>转移到github静态页面上，因为wordpress的富文本编辑器不太喜欢，还是喜欢在sublime的敲。今天闲下来心一横就开始了</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>点击全文查看吧</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-配置环境"><a href="#1-配置环境" class="headerlink" title="1.配置环境"></a>1.配置环境</h2><h3 id="1-1-node"><a href="#1-1-node" class="headerlink" title="1.1 node"></a>1.1 node</h3><p>这个不用多说了，本来hexo就是基于nodejs的，而且现在每个程序员的电脑都有这么个东西，略过</p>
+<h3 id="1-2-git"><a href="#1-2-git" class="headerlink" title="1.2 git"></a>1.2 git</h3><p>git是开源的分布式版本控制系统，刚知道这东西的时候感觉老复杂了，当然现在依然没怎么学会，因为在我自己的公司就我一个前端，基本没用这个玩意来进行生产，我只是拿来推送与管理自己的github，目前只是学会用，而且也没用命令行的东西，用sourceTree界面管理工具<br>git在hexo的作用也是把本地的hexo内容提交到github上去.</p>
+<h3 id="1-3-github账户"><a href="#1-3-github账户" class="headerlink" title="1.3 github账户"></a>1.3 github账户</h3><p>这个不用多说了，没有账户的人应该也会去找一些自己想要的东西或者是去阅读一些牛人的代码，我用最多的就是找牛逼的代码，自己能用的拿来用，用不到的就阅读下牛人怎么写的代码，这有机会再展开说。</p>
+<h2 id="2-安装与配置Hexo"><a href="#2-安装与配置Hexo" class="headerlink" title="2.安装与配置Hexo"></a>2.安装与配置Hexo</h2><h3 id="2-1-安装hexo"><a href="#2-1-安装hexo" class="headerlink" title="2.1 安装hexo"></a>2.1 安装hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm install -g hexo</div></pre></td></tr></table></figure>
+<p>cnpm是国内的淘宝镜像，把hexo安装到全局(-g);<br>测试是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo -version </div></pre></td></tr></table></figure><br>如果安装成功会显示如下版本信息<br><img src="/images/hexo-version.png" width="400" height="600" title="hexo -version"><br>安装成功之后就可以用Hexo创建项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div></pre></td></tr></table></figure><br>其中 hexo init 是启动创建项目的意思 blog为项目名称<br>安装完成之后 进入目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cd blog </div></pre></td></tr></table></figure><br>hexo g 是生成静态文件 (hexo generate的缩写)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure><br>本地启动 hexo s 是 hexo server 的缩写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s </div></pre></td></tr></table></figure><br>浏览器输入 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 就可以看到我们刚创建的blog项目了</p>
+<h3 id="2-2-配置hexo"><a href="#2-2-配置hexo" class="headerlink" title="2.2 配置hexo"></a>2.2 配置hexo</h3><p>配置hexo主要由三个配置<br>1.全局配置<br>2.安装主题并进行配置<br>3.部署到github上</p>
+<h4 id="2-2-1-全局配置"><a href="#2-2-1-全局配置" class="headerlink" title="2.2.1 全局配置"></a>2.2.1 全局配置</h4><p>_config.yml是全局的配置文件：很多的网站配置都在这个文件中定义。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">站点信息: 定义标题，作者，语言</div><div class="line">URL: URL访问路径</div><div class="line">文件目录: 正文的存储目录</div><div class="line">写博客配置：文章标题，文章类型，外部链接等</div><div class="line">目录和标签：默认分类，分类图，标签图</div><div class="line">归档设置：归档的类型</div><div class="line">服务器设置：IP，访问端口，日志输出</div><div class="line">时间和日期格式： 时间显示格式，日期显示格式</div><div class="line">分页设置：每页显示数量</div><div class="line">评论：外挂的Disqus评论系统</div><div class="line">插件和皮肤：换皮肤，安装插件</div><div class="line">Markdown语言：markdown的标准</div><div class="line">CSS的stylus格式：是否允许压缩</div><div class="line">部署配置：github发布</div></pre></td></tr></table></figure><br>查看文件：_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"># Hexo Configuration</div><div class="line">## Docs: https://hexo.io/docs/configuration.html</div><div class="line">## Source: https://github.com/hexojs/hexo/</div><div class="line"></div><div class="line"># 网站设置</div><div class="line">title: 苟且</div><div class="line">subtitle: 敬畏技术、拓展知识、见微知著</div><div class="line">description: Jser\nodejs\C\Python\知名扯淡专家\资深渣渣前端er</div><div class="line">author: 假装正在输入</div><div class="line">language: zh-Hans</div><div class="line">timezone:</div><div class="line"></div><div class="line"># 设置url</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: http://new.chongblog.com/</div><div class="line">root: /</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div><div class="line"></div><div class="line"># 文件目录设置</div><div class="line">source_dir: source</div><div class="line">public_dir: public</div><div class="line">tag_dir: tags</div><div class="line">archive_dir: archives</div><div class="line">category_dir: categories</div><div class="line">code_dir: downloads/code</div><div class="line">i18n_dir: :lang</div><div class="line">skip_render:</div><div class="line"></div><div class="line"># 博客配置</div><div class="line">new_post_name: :title.md # File name of new posts</div><div class="line">default_layout: post</div><div class="line">titlecase: false # Transform title into titlecase</div><div class="line">external_link: true # Open external links in new tab</div><div class="line">filename_case: 0</div><div class="line">render_drafts: false</div><div class="line">post_asset_folder: false</div><div class="line">relative_link: false</div><div class="line">future: true</div><div class="line">highlight:</div><div class="line">  enable: true</div><div class="line">  line_number: true</div><div class="line">  auto_detect: false</div><div class="line">  tab_replace:</div><div class="line"></div><div class="line"># 标签与归档设置</div><div class="line">default_category: uncategorized</div><div class="line">category_map:</div><div class="line">tag_map:</div><div class="line"></div><div class="line"># 时间与格式设置</div><div class="line">## Hexo uses Moment.js to parse and display date</div><div class="line">## You can customize the date format as defined in</div><div class="line">## http://momentjs.com/docs/#/displaying/format/</div><div class="line">date_format: YYYY-MM-DD</div><div class="line">time_format: HH:mm:ss</div><div class="line"></div><div class="line"># 分页设置</div><div class="line">## Set per_page to 0 to disable pagination</div><div class="line">per_page: 5</div><div class="line">pagination_dir: page</div><div class="line"></div><div class="line"># 插件和皮肤设置</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: next</div><div class="line"></div><div class="line"># github部署设置</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: http://github.com/chong0808/hexo-blog.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>    </p>
+<h3 id="2-2-2-安装主题并进行配置"><a href="#2-2-2-安装主题并进行配置" class="headerlink" title="2.2.2 安装主题并进行配置"></a>2.2.2 安装主题并进行配置</h3><p>安装主题的话现在github一搜有一堆免费试用的主题<br>下载好主题文件之后放到<br>    F:\hexo-blog\blog\themes<br>文件中<br>然后在全局配置文件_config.yml修改theme值，将值与主题文件包设置一样名字<a href="http://theme-next.iissnan.com/" title="next主题官网" target="_blank" rel="external">next主题官网</a></p>
+<pre><code># 插件和皮肤设置
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: next
+</code></pre><p>打开F:\hexo-blog\blog\themes\next文件找到_config.yml根据官方文档进行主题设置<br>再次静态化打包，本地发布<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure><br>浏览器输入 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 就能预览项目了</p>
+<h3 id="2-2-3-部署到github上"><a href="#2-2-3-部署到github上" class="headerlink" title="2.2.3 部署到github上"></a>2.2.3 部署到github上</h3><p>在github中创建一个项目hexo-blog<br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># github部署设置</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: http://github.com/chong0808/hexo-blog.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure><br>然后，通过命令进行部署。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><br>静态的web网站就被部署到了github</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/02/16-12-02/"
+           data-title="构建hexo+github博客" data-url="http://new.chongblog.com/2016/12/02/16-12-02/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.PNG"
+               alt="假装正在输入" />
+          <p class="site-author-name" itemprop="name">假装正在输入</p>
+          <p class="site-description motion-element" itemprop="description">Jser\nodejs\C\Python\知名扯淡专家\资深渣渣前端er</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-配置环境"><span class="nav-number">2.</span> <span class="nav-text">1.配置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-node"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-git"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-github账户"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 github账户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装与配置Hexo"><span class="nav-number">3.</span> <span class="nav-text">2.安装与配置Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-安装hexo"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-配置hexo"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 配置hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-全局配置"><span class="nav-number">3.2.1.</span> <span class="nav-text">2.2.1 全局配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-安装主题并进行配置"><span class="nav-number">3.3.</span> <span class="nav-text">2.2.2 安装主题并进行配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-部署到github上"><span class="nav-number">3.4.</span> <span class="nav-text">2.2.3 部署到github上</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">假装正在输入</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chongblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
