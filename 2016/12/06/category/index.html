@@ -1,0 +1,629 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/bitbug_favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="算法一直是一个程序员的必备技能，以前前端涉及到算法的地方并不是很多，一般在后端进行数据处理与数据分类的时候会要求用到一个算法，随着前端技术发展与前端工程变化之后，前端需要用到的算法也会越来越多，前端不再是处理简单的交互，更多的是要处理业务逻辑。。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于一分类排序算法">
+<meta property="og:url" content="http://new.chongblog.com/2016/12/06/category/index.html">
+<meta property="og:site_name" content="苟且">
+<meta property="og:description" content="算法一直是一个程序员的必备技能，以前前端涉及到算法的地方并不是很多，一般在后端进行数据处理与数据分类的时候会要求用到一个算法，随着前端技术发展与前端工程变化之后，前端需要用到的算法也会越来越多，前端不再是处理简单的交互，更多的是要处理业务逻辑。。。">
+<meta property="og:image" content="http://new.chongblog.com/images/top.png">
+<meta property="og:image" content="http://new.chongblog.com/images/top_appcate.png">
+<meta property="og:image" content="http://new.chongblog.com/images/ppp12.png">
+<meta property="og:updated_time" content="2016-12-06T13:33:25.817Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于一分类排序算法">
+<meta name="twitter:description" content="算法一直是一个程序员的必备技能，以前前端涉及到算法的地方并不是很多，一般在后端进行数据处理与数据分类的时候会要求用到一个算法，随着前端技术发展与前端工程变化之后，前端需要用到的算法也会越来越多，前端不再是处理简单的交互，更多的是要处理业务逻辑。。。">
+<meta name="twitter:image" content="http://new.chongblog.com/images/top.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 关于一分类排序算法 | 苟且 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">苟且</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">敬畏技术、拓展知识、见微知著</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                关于一分类排序算法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-06T18:44:12+08:00" content="2016-12-06">
+              2016-12-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/06/category/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/category/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>算法一直是一个程序员的必备技能，以前前端涉及到算法的地方并不是很多，一般在后端进行数据处理与数据分类的时候会要求用到一个算法，随着前端技术发展与前端工程变化之后，前端需要用到的算法也会越来越多，前端不再是处理简单的交互，更多的是要处理业务逻辑。。。<br><a id="more"></a><br>而这些逻辑往往会或多或少的带有算法，并且用的最多的就是排序，但是目前前端主流框架都带有简单的排序功能，比如angularjs就有过滤器，但是对于更加复杂的逻辑还是需要自己去写过滤器。目前我在项目中用的最多的在后端传回数据给我的时候，我需要把数据进行分类，因为后端基本不给我处理这些，只给回原始的数据。</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>后端传回来的原始数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">&lt;xml&gt;</div><div class="line">  &lt;data name=&quot;hzxx&quot;&gt;&lt;!--患者信息--&gt;</div><div class="line">    &lt;row&gt;</div><div class="line">      &lt;!-- 病人编号 --&gt;</div><div class="line">      &lt;userid&gt;12344&lt;/userid&gt;</div><div class="line">      &lt;!-- 就诊编号 本次的--&gt;</div><div class="line">      &lt;currentnum&gt;12233456787&lt;/currentnum&gt;</div><div class="line">      &lt;!-- 姓名 --&gt;</div><div class="line">      &lt;name&gt;刘德华&lt;/name&gt;</div><div class="line">      &lt;!-- 出生年月日 --&gt;</div><div class="line">      &lt;birth&gt;1990/10/10&lt;/birth&gt;</div><div class="line">      &lt;!-- 电话 --&gt;</div><div class="line">      &lt;phone&gt;12345678911&lt;/phone&gt;</div><div class="line">      &lt;!-- 地址 --&gt;</div><div class="line">      &lt;address&gt;广东省深圳市南山区&lt;/address&gt;</div><div class="line">      &lt;!-- 过敏药物 --&gt;</div><div class="line">      &lt;drug&gt;敌敌畏，鹤顶红&lt;/drug&gt;</div><div class="line">      &lt;!-- 其他信息 --&gt;</div><div class="line">      &lt;otherinfo&gt;无&lt;/otherinfo&gt;</div><div class="line">    &lt;/row&gt;</div><div class="line">  &lt;/data&gt;</div><div class="line">  &lt;data name=&quot;wwcsj&quot;&gt;&lt;!--未完成数据--&gt;</div><div class="line">    &lt;row&gt;</div><div class="line">      &lt;!--  首诊编号  operation number--&gt;</div><div class="line">      &lt;opernum&gt;12345&lt;/opernum&gt;</div><div class="line">      &lt;!-- 行号 row number--&gt;</div><div class="line">      &lt;rownum&gt;1&lt;/rownum&gt;</div><div class="line">      &lt;!-- 项目编号project number --&gt;</div><div class="line">      &lt;pronum&gt;1234577&lt;/pronum&gt;</div><div class="line">      &lt;!-- 项目名称 project name --&gt;</div><div class="line">      &lt;proname&gt;拔牙&lt;/proname&gt;</div><div class="line">      &lt;!-- 病程序号 case num --&gt;</div><div class="line">      &lt;casenum&gt;1&lt;/casenum&gt;</div><div class="line">      &lt;!-- 当前病程 --&gt;</div><div class="line">      &lt;currcase&gt;粘托槽&lt;/currcase&gt;</div><div class="line">      &lt;case&gt;</div><div class="line">        &lt;row&gt;方案&lt;/row&gt;</div><div class="line">        &lt;row&gt;粘托槽&lt;/row&gt;</div><div class="line">        &lt;row&gt;方案&lt;/row&gt;</div><div class="line">        &lt;row&gt;粘托槽&lt;/row&gt;</div><div class="line">      &lt;/case&gt;</div><div class="line">      &lt;!-- 牙位 tooth position--&gt;</div><div class="line">      &lt;toothpos&gt;&lt;/toothpos&gt;</div><div class="line">      &lt;!-- 单位 --&gt;</div><div class="line">      &lt;dw&gt;&lt;/dw&gt;</div><div class="line">      &lt;!-- 单价 price--&gt;</div><div class="line">      &lt;price&gt;1000&lt;/price&gt;</div><div class="line">      &lt;!-- 数量 --&gt;</div><div class="line">      &lt;num&gt;1&lt;/num&gt;</div><div class="line">      &lt;!-- 合计 total price --&gt;</div><div class="line">      &lt;totalpri&gt;1000&lt;/totalpri&gt;</div><div class="line">      &lt;!-- 优惠金额 discount price --&gt;</div><div class="line">      &lt;discprice&gt;100&lt;/discprice&gt;</div><div class="line">      &lt;!-- 小计 subtotal --&gt;</div><div class="line">      &lt;subtotal&gt;1000&lt;/subtotal&gt;</div><div class="line">      &lt;!-- 欠款 owe --&gt;</div><div class="line">      &lt;owe&gt;&lt;/owe&gt;</div><div class="line">    &lt;/row&gt;</div><div class="line">    &lt;row&gt;.....&lt;/row&gt;</div><div class="line">      ....</div><div class="line">    &lt;row&gt;.....&lt;/row&gt;</div><div class="line">    &lt;row&gt;.....&lt;/row&gt;</div><div class="line">    &lt;row&gt;.....&lt;/row&gt;</div><div class="line">  &lt;/data&gt;</div><div class="line">&lt;/xml&gt;</div></pre></td></tr></table></figure><br>先用<a href="https://github.com/abdmob/x2js" title="x2js库" target="_blank">x2js库</a>将xml转成json，然后将他们分类，每条xml数据都有俩个data节点，第一个data节点(name=’hzxx’)里面的是患者的基本信息，第二个data节点(name=’wwcsj’)包裹着的是每个患者所做的项目，每个项目里面又包含着N个进程，data节点下面的每个每个row节点是一个进程，每个项目中都有对应唯一的首诊编号与行号，现在要根据每个row节点中的opernum(首诊编号)与rownum(行号),取出row节点中相同项目中的子进程(如下图)。<br><img src="/images/top.png" width="600" height="400" title="img"><br>由图需求可知，就是行为单位将进行进行分类，属于相同行的进程分到一起<br>取出结果<br><img src="/images/top_appcate.png" width="400" height="600" title="img"></p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var queryProject = function (data) &#123;</div><div class="line"> // body...</div><div class="line"> var  obj = [];</div><div class="line"> if(Array.isArray(data.row))&#123;</div><div class="line">   let dataLists = data.row;</div><div class="line">   for(let i =0;i&lt;dataLists.length;i++)&#123;</div><div class="line">     var row = [];</div><div class="line">     row.push(dataLists[i])</div><div class="line">     let currentData = dataLists[i];</div><div class="line">     dataLists.splice(i,1);</div><div class="line">     for(let j=0;j&lt;dataLists.length;j++)&#123;</div><div class="line">       if((currentData.opernum == dataLists[j].opernum) &amp;&amp; ( currentData.rownum == dataLists[j].rownum ))&#123;</div><div class="line">         row.push(dataLists[j])</div><div class="line">         dataLists.splice(j,1);</div><div class="line">       &#125;</div><div class="line">     &#125;</div><div class="line">     obj.push(row);</div><div class="line">   &#125;</div><div class="line"> &#125;else&#123;</div><div class="line">     obj.push(data)</div><div class="line"> &#125;</div><div class="line"> console.log(obj)</div><div class="line"> return obj;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这段代码是先进行类型判断，然后进入一次循环，定义一个缓存数组row，之后将第i次循环的元素放进row中，保存当前第i个元素currentData，然后在原数组中删去第i个数组,那么原数组中只剩arr.length-1个元素，进入第二次循环，将刚删去的第i个元素与剩下arr.length-1个元素的每个进行比较，然后取出相同的，，如果有就扔进row中，之后在从原数组中删除该元素，最后将row扔进obj中，在进行第一次循环。</p>
+<h3 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h3><p>在这个分类中，每进行一次第一次外围循环都要将第i个数组从原数组中删，然后与剩下的元素进行比较，接下来每进行一次第二次内部循环对比，如果有一样的都要将该元素扔进row中缓存，然后删改元素，最后将row扔进obj中，每次进行外围循环都要将缓存row清空。</p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>如图<br><img src="/images/ppp12.png" width="600" height="400" title="img"><br>如果有9个row的数据而且每个row的数据都不相同，那么要进行循环的最大次数是8+7+6+5+4+3+2+1=36次</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/06/array161206/" rel="next" title="重读语言精粹---数组">
+                <i class="fa fa-chevron-left"></i> 重读语言精粹---数组
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/06/category/"
+           data-title="关于一分类排序算法" data-url="http://new.chongblog.com/2016/12/06/category/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="假装正在输入" />
+          <p class="site-author-name" itemprop="name">假装正在输入</p>
+          <p class="site-description motion-element" itemprop="description">Jser\nodejs\C\Python\知名扯淡专家\资深渣渣前端er</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-number">2.</span> <span class="nav-text">实现代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#难点"><span class="nav-number">2.1.</span> <span class="nav-text">难点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能"><span class="nav-number">2.2.</span> <span class="nav-text">性能</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">假装正在输入</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chongblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
