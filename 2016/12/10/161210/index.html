@@ -1,0 +1,639 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="模块化,组件化," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/bitbug_favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="模块化与组件化开发，是前端工程化崛起的一种新的前端开发方式，最近一俩年讨论最多的前端开发方式，合理的运用模块化与组件化开发能确保开发出可复用、可维护的软件代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模块化与组件化的浅见">
+<meta property="og:url" content="http://new.chongblog.com/2016/12/10/161210/index.html">
+<meta property="og:site_name" content="苟且">
+<meta property="og:description" content="模块化与组件化开发，是前端工程化崛起的一种新的前端开发方式，最近一俩年讨论最多的前端开发方式，合理的运用模块化与组件化开发能确保开发出可复用、可维护的软件代码。">
+<meta property="og:image" content="http://new.chongblog.com/images/121011.png">
+<meta property="og:image" content="http://new.chongblog.com/images/121005.png">
+<meta property="og:image" content="http://new.chongblog.com/images/121005.png">
+<meta property="og:image" content="http://new.chongblog.com/images/121004.png">
+<meta property="og:image" content="http://new.chongblog.com/images/121001.png">
+<meta property="og:image" content="http://new.chongblog.com/images/121002.png">
+<meta property="og:image" content="http://new.chongblog.com/images/121012.png">
+<meta property="og:updated_time" content="2016-12-10T08:09:15.450Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模块化与组件化的浅见">
+<meta name="twitter:description" content="模块化与组件化开发，是前端工程化崛起的一种新的前端开发方式，最近一俩年讨论最多的前端开发方式，合理的运用模块化与组件化开发能确保开发出可复用、可维护的软件代码。">
+<meta name="twitter:image" content="http://new.chongblog.com/images/121011.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 模块化与组件化的浅见 | 苟且 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">苟且</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">敬畏技术、拓展知识、见微知著</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                模块化与组件化的浅见
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-10T22:44:12+08:00" content="2016-12-10">
+              2016-12-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/10/161210/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/161210/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>模块化与组件化开发，是前端工程化崛起的一种新的前端开发方式，最近一俩年讨论最多的前端开发方式，合理的运用模块化与组件化开发能确保开发出可复用、可维护的软件代码。<br><a id="more"></a></p>
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><p>每个开发者对模块化的定义都差不多一样，看过很多资料，说法千万种，但是最终的思想都是差不多，都是离不开抽象、抽离出底层的实现，然后把他独立封装起来，暴露出特定的接口，高级一点的模块化就是将功能封装成一个黑盒，只管接口，不管里面是怎么实现的。<br>对于前端开发来说，模块化最初的就是将功能封装，不断的封装，复用，再复用，这时候requirejs、commonjs出现了<br>随着web技术的发展仅仅实现功能的抽离封装已经不能在满足项目的开发了，到后来又有了模块化加载，按需加载，就是用到的时候才加载进来，不用的时候不加载，再优化应用方面减少了http请求，这时候seajs出现了。<br><blockquote><p>RequireJS的目标是鼓励代码的模块化，它使用了不同于传统script标签的脚本加载步骤。可以用它来加速、优化代码，但其主要目的还是为了代码的模块化。它鼓励在使用脚本时以module ID替代URL地址。</p>
+</blockquote></p>
+<h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><p>组件化的按照业务逻辑进行划分，将应用分出一个个模块，实现更好的协同开发与开发出更具维护性的应用，降低没个功能组件的耦合度，在后期维护实现快速定位或者扩展功能的时候更加方便。<br>组件化最大的好处是实现了可复用，一次深度开发之后，可以在之后或者其他地方实现复用，满足更多的业务场景需求的时候能很快的进行二次开发实现出来，组件之间最大的难点是如何降低耦合度。</p>
+<h2 id="如何正确的划分组件跟模块"><a href="#如何正确的划分组件跟模块" class="headerlink" title="如何正确的划分组件跟模块"></a>如何正确的划分组件跟模块</h2><p>组件式的开发最大的要求就是降低耦合度，实现复用（在我的开发的过程中）,特别是系统软件的开发，功能都是相似的，但是这是使用的场景不同</p>
+<h3 id="按功能区划分组件"><a href="#按功能区划分组件" class="headerlink" title="按功能区划分组件"></a>按功能区划分组件</h3><p>正在进行中一个项目中，下拉选择是一个经常要复用的地方，那么久可以把他抽离出来，当做一个组件<br><img src="/images/121011.png" width="1200" height="600" title="图片"><br><img src="/images/121005.png" width="1200" height="600" title="图片"><br>在之前项目中有很多下拉的选择框，但是数据跟样式跟选择回调是不同的<br><img src="/images/121005.png" width="1200" height="600" title="图片"></p>
+<p>这样一个下拉的组件虽然很小，但是一旦抽离出来可以进行很好的复用，无论在以后的项目还是在这次项目中，都能快速的复用，<br>如何进行设计接口，下拉的组件通常是三个接口<br>1.接受数据<br>2.点击选择接收回调函数<br>3.改变样式<br>这三个接口要怎么设计，而且还要考虑以后如何去再去扩展，从这个三个方面下手设计<br>看下面的图片中的优惠券折扣卡区域<br><img src="/images/121004.png" width="1200" height="600" title="图片"><br>这个里面的优惠券跟折扣卡都是一样的，只是接收的数据不一样，而且工能都是只能选择一张，这可以设计一个类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Card(data)&#123;</div><div class="line"> this.data = data;</div><div class="line">&#125;</div><div class="line">//初始化的方法</div><div class="line">Card.prototype.init = function()&#123;&#125;</div><div class="line">Card.prototype.changeStyle = function()&#123;&#125;</div><div class="line">...</div><div class="line">Card.prototype.method = function()&#123;&#125;;</div><div class="line"></div><div class="line">//生成优惠券 </div><div class="line">new Card(data);</div><div class="line">//生成折扣卡</div><div class="line">new Card(data);</div><div class="line">//生成积分卡</div><div class="line">new Card(data);</div></pre></td></tr></table></figure><br>当然这是以前的工作方式了，现在引入angularjs之后完全不用这样了，写好样式之后，接收数据进行循环产生就可以了··现在的前端框架很大程度上解决了组件化开发的方案，低级一点的基本上不用自己写接口，直接写个指令就可以;而且一般也是够用了。</p>
+<h3 id="按场景区划分组件"><a href="#按场景区划分组件" class="headerlink" title="按场景区划分组件"></a>按场景区划分组件</h3><p>按场景来区分的好用就是场景复用<br><img src="/images/121001.png" width="1200" height="600" title="图片"><br><img src="/images/121002.png" width="1200" height="600" title="图片"><br>上面的新增项目跟选择优惠是在预诊更跟费用划价都会用到的，而且都是一样的，只是接受的数据不一样，<br>那么可以把这俩个东西当做一个组件<br>那么设计的时候只要接受数据接口跟返回数据接口的方法就可以<br>点击弹出的时候可以接收项目的数据，之后确定关闭之后接收一个返回数据给上一个场景就可以，<br>这样做的好处就是，无论怎么扩展，最后组件与组件之间的关联都是在数据上的耦合。</p>
+<h3 id="模块划分"><a href="#模块划分" class="headerlink" title="模块划分"></a>模块划分</h3><p>模块的划分有俩种<br>1.是方法函数，比如经常用到的方法可以抽离，<br>最常用的事件方法跟对象引用方法，这些底层功能方法函数，可以抽离<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(function unit()&#123;</div><div class="line"> </div><div class="line"> function _extend(obj1,obj2)&#123;</div><div class="line">  var obj = obj1 || &#123;&#125;;</div><div class="line">  if(obj2 &amp;&amp; typeof obj2 ==&apos;object&apos;)&#123;</div><div class="line">   for(key in obj2)&#123;</div><div class="line">   	obj[key] = obj2[key]</div><div class="line">   &#125;</div><div class="line">  &#125;</div><div class="line">  return obj</div><div class="line"> &#125;</div><div class="line"> return &#123;</div><div class="line">  extend:_extend</div><div class="line"> &#125;</div><div class="line">&#125;)()</div></pre></td></tr></table></figure><br>2.是应用模块<br><img src="/images/121012.png" width="1200" height="600" title="图片"><br>在之前的项目或者现在的项目都是按应用的功能区划分的模块，上面图片中的可以首先分出预约，患者，收费，统计，库存，设置<br>这几个是大的模块，在每个大模块里面又能划分出小的模块出来，在患者这个模块中，又能划分基本信息、患者病历、缴费记录、影象信息、预约记录、回访信息、外加工。<br>这里的模块划分充分的体现的大型应用之间的构建，模块开发与按需加载很是需要用到，也很适合用angularjs构建单页面应用开发，每个模块根据路由划分，然后模块与模块之间的通讯基本可以用广播来实现，这样极大的方便了开发。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>模块化与组件式的开发追求的最终目的就是方便开发，减少开发难度，加强团队协作开发，分工合作，各司其职，降低后期的维护难度，增强后期的可维护性。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/模块化/" rel="tag">#模块化</a>
+          
+            <a href="/tags/组件化/" rel="tag">#组件化</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/08/top_pro/" rel="next" title="项目的坑——深复制(对象的引用传递)">
+                <i class="fa fa-chevron-left"></i> 项目的坑——深复制(对象的引用传递)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/10/161210/"
+           data-title="模块化与组件化的浅见" data-url="http://new.chongblog.com/2016/12/10/161210/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="假装正在输入" />
+          <p class="site-author-name" itemprop="name">假装正在输入</p>
+          <p class="site-description motion-element" itemprop="description">Jser\nodejs\C\Python\知名扯淡专家\资深渣渣前端er</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化"><span class="nav-number">1.</span> <span class="nav-text">模块化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件化"><span class="nav-number">2.</span> <span class="nav-text">组件化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何正确的划分组件跟模块"><span class="nav-number">3.</span> <span class="nav-text">如何正确的划分组件跟模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#按功能区划分组件"><span class="nav-number">3.1.</span> <span class="nav-text">按功能区划分组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按场景区划分组件"><span class="nav-number">3.2.</span> <span class="nav-text">按场景区划分组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块划分"><span class="nav-number">3.3.</span> <span class="nav-text">模块划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">假装正在输入</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chongblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
