@@ -1,0 +1,645 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="微信小程序,前端," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/bitbug_favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="微信小程序处来好久了，从微信内侧到公测，一直都在关注，上个月公测版出来，搞了一个号终于可以试试是怎么样的开发流程了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序">
+<meta property="og:url" content="http://new.chongblog.com/2016/12/18/wechatApp/index.html">
+<meta property="og:site_name" content="苟且">
+<meta property="og:description" content="微信小程序处来好久了，从微信内侧到公测，一直都在关注，上个月公测版出来，搞了一个号终于可以试试是怎么样的开发流程了。">
+<meta property="og:image" content="http://new.chongblog.com/images/wx1.png">
+<meta property="og:image" content="http://new.chongblog.com/images/wx2.png">
+<meta property="og:image" content="http://new.chongblog.com/images/wx3.png">
+<meta property="og:image" content="http://new.chongblog.com/images/wx4.png">
+<meta property="og:updated_time" content="2016-12-18T07:44:41.549Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序">
+<meta name="twitter:description" content="微信小程序处来好久了，从微信内侧到公测，一直都在关注，上个月公测版出来，搞了一个号终于可以试试是怎么样的开发流程了。">
+<meta name="twitter:image" content="http://new.chongblog.com/images/wx1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 微信小程序 | 苟且 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">苟且</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">敬畏技术、拓展知识、见微知著</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                微信小程序
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-18T20:44:12+08:00" content="2016-12-18">
+              2016-12-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/webAPP/" itemprop="url" rel="index">
+                    <span itemprop="name">webAPP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/18/wechatApp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/18/wechatApp/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>微信小程序处来好久了，从微信内侧到公测，一直都在关注，上个月公测版出来，搞了一个号终于可以试试是怎么样的开发流程了。<br><a id="more"></a></p>
+<h2 id="初识小程序"><a href="#初识小程序" class="headerlink" title="初识小程序"></a>初识小程序</h2><p>登录注册之后，下载了一个微信平台开发者工具，进入微信开发者工具<br>创建或者导入项目之后出现的界面<br><img src="/images/wx1.png" width="1200" height="600" title="图片"><br>左边的工具栏，中间一个预览效果图，右面主要是调试工具跟文件还有代码编辑区<br>编辑区界面可以修改文件结构，保存之后实时刷新预览<br><img src="/images/wx2.png" width="1200" height="600" title="图片"><br>调试界面右边切换为一chrome内核的调试工具，说明小程序的内核是基于谷歌浏览器的，这样就不用做四大内核兼容了？<br><img src="/images/wx3.png" width="1200" height="600" title="图片"><br>项目栏下把整个界面切换为项目配置界面<br><img src="/images/wx4.png" width="1200" height="600" title="图片"><br>最关注的焦点也是之前一直关心的一个问题，微信小程序到底能否切换为，后台运行模式，看了下工具栏有个‘后台’，点击之后界面冻住了，这说明小程序是有后台运行功能的，在操作小程序的时候是可以退出到微信聊天界面的。<br>接下来还有个缓存功能，看了下微信官方给出的demo有很多地方是用到了本地缓存功能的</p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>微信小程序有三个配置文件，而且是放在根目录文件下的<br>app.js/app.json/app.wxss</p>
+<h4 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h4><p>app.json是整个app的全局配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> &quot;pages&quot;:[</div><div class="line">  &quot;pages/index/indexPage/indexPage&quot;,</div><div class="line">  &quot;pages/logs/logs&quot;,</div><div class="line">  &quot;pages/userdefine/userPage&quot;,</div><div class="line">  &quot;pages/navigator/navigator&quot;,</div><div class="line">  &quot;pages/redirect/redirect&quot;</div><div class="line"> ],</div><div class="line"> &quot;window&quot;:&#123;</div><div class="line">  &quot;backgroundColor&quot;:&quot;#CCC&quot;,</div><div class="line">  &quot;backgroundTextStyle&quot;:&quot;dark&quot;,</div><div class="line">  &quot;navigationBarBackgroundColor&quot;: &quot;#000&quot;,</div><div class="line">  &quot;navigationBarTitleText&quot;: &quot;微信接口功能演示&quot;,</div><div class="line">  &quot;navigationBarTextStyle&quot;:&quot;#FFF&quot;,</div><div class="line">  &quot;enablePullDownRefresh&quot;:true</div><div class="line"> &#125;,</div><div class="line"> &quot;tabBar&quot;:&#123;</div><div class="line">  &quot;color&quot;:&quot;red&quot;,</div><div class="line">  &quot;selectedColor&quot;:&quot;blue&quot;,</div><div class="line">  &quot;backgroundColor&quot;: &quot;#CCC&quot;,</div><div class="line">  &quot;borderStyle&quot;:&quot;white&quot;,</div><div class="line">  &quot;position&quot;:&quot;bottom&quot;,</div><div class="line">  &quot;list&quot;:[&#123;</div><div class="line">   &quot;pagePath&quot;: &quot;pages/index/indexPage/indexPage&quot;,</div><div class="line">   &quot;text&quot;: &quot;test&quot;,</div><div class="line">   &quot;iconPath&quot;:&quot;image/icon_API.png&quot;,</div><div class="line">   &quot;selectedIconPath&quot;:&quot;image/icon_API.png&quot;</div><div class="line">  &#125;,&#123;</div><div class="line">   &quot;pagePath&quot;:&quot;pages/userdefine/userPage&quot;,</div><div class="line">   &quot;iconPath&quot;:&quot;image/icon_API.png&quot;,</div><div class="line">   &quot;selectedIconPath&quot;:&quot;image/icon_API.png&quot;,      </div><div class="line">   &quot;text&quot;:&quot;消息&quot;</div><div class="line">  &#125;,&#123;</div><div class="line">   &quot;pagePath&quot;: &quot;pages/logs/logs&quot;,</div><div class="line">   &quot;iconPath&quot;:&quot;image/icon_API.png&quot;,</div><div class="line">   &quot;text&quot;: &quot;icon&quot;,</div><div class="line">   &quot;selectedIconPath&quot;:&quot;image/icon_API.png&quot;  </div><div class="line">  &#125;]</div><div class="line"> &#125;,</div><div class="line"> &quot;networkTimeout&quot;:&#123;</div><div class="line">  &quot;request&quot;:1000,</div><div class="line">  &quot;downloadFile&quot;:1000</div><div class="line"> &#125;,</div><div class="line"> &quot;debug&quot;:true</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>“pages”为注册页面，每增减一个page都要在这里进行定义文件路径，<br>“window” 为定义app的公共样式<br>“tabBar” 为定义底部icons的图文信息与样式，还有配置路径</p>
+<h4 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">//app.js</div><div class="line">App(&#123;</div><div class="line">//当小程序初始化完成时，会触发 onLaunch（全局只触发一次）</div><div class="line">onLaunch: function () &#123;</div><div class="line">  //调用API从本地缓存中获取数据</div><div class="line">  var logs = wx.getStorageSync(&apos;logs&apos;) || []</div><div class="line">  logs.unshift(Date.now())</div><div class="line">  wx.setStorageSync(&apos;logs&apos;, logs)</div><div class="line">  console.log(&apos;111111logs&apos;)</div><div class="line">&#125;,</div><div class="line">getUserInfo:function(cb)&#123;</div><div class="line"> var that = this</div><div class="line"> console.log(that)</div><div class="line"> if(this.globalData.userInfo)&#123;</div><div class="line">  typeof cb == &quot;function&quot; &amp;&amp; cb(this.globalData.userInfo)</div><div class="line"> &#125;else&#123;</div><div class="line">  //调用登录接口</div><div class="line">  wx.login(&#123;</div><div class="line">    success: function () &#123;</div><div class="line">      wx.getUserInfo(&#123;</div><div class="line">        success: function (res) &#123;</div><div class="line">          that.globalData.userInfo = res.userInfo</div><div class="line">          typeof cb == &quot;function&quot; &amp;&amp; cb(that.globalData.userInfo)</div><div class="line">        &#125;</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;,</div><div class="line">globalData:&#123;</div><div class="line"> userInfo:&apos;aaa&apos;</div><div class="line">&#125;,</div><div class="line">//当小程序启动，或从后台进入前台显示，会触发 onShow</div><div class="line">onShow:function()&#123;</div><div class="line"> console.log(&apos;222221onShow&apos;)</div><div class="line">&#125;,</div><div class="line">//当小程序从前台进入后台，会触发 onHide</div><div class="line">onHide:function()&#123;</div><div class="line"> console.log(&apos;111111onHide&apos;)</div><div class="line">&#125;,</div><div class="line">userdefine:function()&#123;</div><div class="line">  console.log(&apos;userdefine&apos;)</div><div class="line">&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>这个文件是全局文件，所有的页面都是这个app下的子类，也就是说之后创建的所有页面都可以调用这个app里面的方法<br>1.当小程序初始化完成时，会触发 onLaunch（全局只触发一次）<br>2.当小程序启动，或从后台进入前台显示，会触发 onShow<br>3.调用顺序，1、先执行 onLaunch 2、onShow  4.执行当前页面page实例中的onloadonload<br>5.之后执行 app实例中的 getUserInfo 所以不要onLaunch 中调用getCurrentPages()此时 page 还没有生成。</p>
+<h3 id="页面文件"><a href="#页面文件" class="headerlink" title="页面文件"></a>页面文件</h3><p>微信小程序的文件模块很到的定义了各个组件，每个页面的文件都将包裹在同一个文件夹里面，在app.json文件里配置页面的时候定义文件夹路径默认只要定义一个文件夹名字，然后默认调用里面的所有文件，其中js。wxss，json，wxml四个文件是默认文件，所有页面的代码都分别放置到这下面四个文件中。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/微信小程序/" rel="tag">#微信小程序</a>
+          
+            <a href="/tags/前端/" rel="tag">#前端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/11/ndoelinux/" rel="next" title="非科班程序员之一本正经胡说八道">
+                <i class="fa fa-chevron-left"></i> 非科班程序员之一本正经胡说八道
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/18/wechatApp/"
+           data-title="微信小程序" data-url="http://new.chongblog.com/2016/12/18/wechatApp/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="假装正在输入" />
+          <p class="site-author-name" itemprop="name">假装正在输入</p>
+          <p class="site-description motion-element" itemprop="description">Jser\nodejs\C\Python\知名扯淡专家\资深渣渣前端er</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识小程序"><span class="nav-number">1.</span> <span class="nav-text">初识小程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件结构"><span class="nav-number">2.</span> <span class="nav-text">文件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件"><span class="nav-number">2.1.</span> <span class="nav-text">配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#app-json"><span class="nav-number">2.1.1.</span> <span class="nav-text">app.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#app-js"><span class="nav-number">2.1.2.</span> <span class="nav-text">app.js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面文件"><span class="nav-number">2.2.</span> <span class="nav-text">页面文件</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">假装正在输入</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chongblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
