@@ -1,0 +1,642 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js基础,node," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/bitbug_favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="javascript最早只是应用于浏览器端的脚本语言，该应用场景决定了其语言特性，单线程、异步。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异步与同步编程">
+<meta property="og:url" content="http://new.chongblog.com/2016/12/11/aync/index.html">
+<meta property="og:site_name" content="苟且">
+<meta property="og:description" content="javascript最早只是应用于浏览器端的脚本语言，该应用场景决定了其语言特性，单线程、异步。">
+<meta property="og:updated_time" content="2016-12-19T15:06:57.323Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="异步与同步编程">
+<meta name="twitter:description" content="javascript最早只是应用于浏览器端的脚本语言，该应用场景决定了其语言特性，单线程、异步。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 异步与同步编程 | 苟且 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=60039671";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">苟且</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">敬畏技术、拓展知识、见微知著</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                异步与同步编程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-11T22:44:12+08:00" content="2016-12-11">
+              2016-12-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/11/aync/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/11/aync/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>javascript最早只是应用于浏览器端的脚本语言，该应用场景决定了其语言特性，单线程、异步。<br><a id="more"></a></p>
+<h3 id="传统编程方式"><a href="#传统编程方式" class="headerlink" title="传统编程方式"></a>传统编程方式</h3><p>传统的编程方式是采用同步编程方式，比如php，当一个程序去加载一个文件的时候，代码会在函数调用栈中阻塞掉程序<br>如下php代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$files = fopen(&apos;info.txt&apos;,&apos;r&apos;);</div><div class="line">$content -= fread($files,100000);</div><div class="line">//。。。继续执行</div></pre></td></tr></table></figure><br>上面这段代码，在执行fopen 这个函数的时候，函数的调用栈一直停留在fopen函数中，然后直到打开文件这个函数完成的时候函数栈才会继续调用下面fread这个方法。<br>事实上这段代码所花的时间都在等待程序执行文件，最后才返回文件的内容<br>对于大部分基于IO的应用,那些频繁连接数据库和外部服务器通信或者读写文件的应用,脚本都会花费大量的时间用来等待处理结果</p>
+<h3 id="传统处理方式"><a href="#传统处理方式" class="headerlink" title="传统处理方式"></a>传统处理方式</h3><h4 id="开启多线程模式"><a href="#开启多线程模式" class="headerlink" title="开启多线程模式"></a>开启多线程模式</h4><p>服务器同时处理多个请求的方法就是并行这些文件,可以很容易的在进程阻塞的时候切换人文脚本,以便其他经常访问CPU资源,或者开启多线程来替代多进程<br>使用多线程解决方案或者轻量级HTTP服务器可以获得更好的效果，但是任然会遇到电脑消耗大量的时间用在等待阻塞进程返回结果的情况。</p>
+<h3 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h3><h4 id="非阻塞异步模式"><a href="#非阻塞异步模式" class="headerlink" title="非阻塞异步模式"></a>非阻塞异步模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeout(function()&#123;</div><div class="line">	console.log(&apos;执行结果&apos;)</div><div class="line">&#125;,5000)</div><div class="line">console.log(&apos;我要在等待5s之后执行&apos;)</div></pre></td></tr></table></figure>
+<p>上面代码输出的结果<br>$ 我要在等待5s之后执行<br>$ 执行结果<br>这段程序设置了等待5S之后预期执行输出‘执行结果’—》’我要在等待5s之后执行’，但是结果却是得到与我们预期相反的，先执行’我要在等待5s之后执行’—&gt;‘执行结果’;<br>这个就是非阻塞IO模式，当函数进入一个函数栈的时候，他不会去等待一个方法执行完响应之后再去调用下面一个函数栈，nodejs核心是去排队调用相应的函数，并在返回结果的时候通知回调函数，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">var file ;</div><div class="line">var buf = new Buffer(100000);</div><div class="line">fs.open(&apos;info.txt&apos;,&apos;r&apos;,function(data)&#123;</div><div class="line"> file = data</div><div class="line">&#125;)</div><div class="line">fs.read(file,buf,0,100000,null,function()&#123;</div><div class="line">	console.log(buf.toString());</div><div class="line">	file.close(files,function()&#123;</div><div class="line">	// 接下来做其他事情</div><div class="line">	&#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure><br>这个执行这段代码输出的结果是 undefined；<br>因为fs.open函数是异步执行，它会在文件打开之前立即返回，而且data值会返回给回调函数，在文件打开之前，file变量不会被赋值，它的值会在fs.open函数的回调函数中被接收，再进入fs.open等待文件打开的时候，函数调用栈将进入下面fs.read方法中，此时file依然为undefined的<br>正确的方式是将所有的同一个方法栈写到上一个函数栈的回调中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">var file ;</div><div class="line">var buf = new Buffer(100000);</div><div class="line">fs.open(&apos;info.txt&apos;,&apos;r&apos;,function(data)&#123;</div><div class="line"> 	file = data</div><div class="line">	fs.read(file,buf,0,100000,null,function()&#123;</div><div class="line">		console.log(buf.toString());</div><div class="line">		file.close(files,function()&#123;</div><div class="line">		// 接下来做其他事情</div><div class="line">		&#125;)</div><div class="line">	&#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure><br>此时就会输出正确的结果，</p>
+<h3 id="单线程的nodejs"><a href="#单线程的nodejs" class="headerlink" title="单线程的nodejs"></a>单线程的nodejs</h3><p>Node运行在单线程中，使用事件轮询来调用外部函数和服务，它将回调函数插入事件队列中等待响应，并且尽快执行回调函数；在单线程模式中，nodejs在同一时间只做一件事，所以nodejs当面对拥有数千个元素的大级别算法的时候，该函数会耗费大量的计算时间，但是nodejs不意味着必须避免高强度计算任务，可以利用全局对象process#nextTick方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">function computer_inter(arr1,arr2,callback)&#123;</div><div class="line"> var bigger = arr1.length&gt;arr2.length?arr1:arr2; </div><div class="line"> var smaller  = arr1.length&gt;arr2.length ?arr2:arr1;</div><div class="line"> var biglen = bigger.length; </div><div class="line"> var smlen = smaller.length; </div><div class="line"> var sidx = 0;</div><div class="line"> var size =10;</div><div class="line"> var res = [];</div><div class="line"> function sub_conputer()&#123;</div><div class="line">  for(var i=sidx;i&lt;(sidx+size)&amp;&amp;i&lt;biglen;i++)&#123;</div><div class="line">   for(var j=0;j&lt;smlen;j++)&#123;</div><div class="line">    if(bigger[i] == smaller[j])&#123;</div><div class="line">     res.push(smaller[j]);</div><div class="line">     break;</div><div class="line">    &#125;</div><div class="line">   &#125;</div><div class="line">  &#125;</div><div class="line">  if(i&gt;=biglen)&#123;</div><div class="line">  	callback(null,res);</div><div class="line">  &#125;else&#123;</div><div class="line">  	sidx+=size;</div><div class="line">  	process.nextTick(sub_conputer)</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line"> sub_conputer();</div><div class="line">&#125;</div><div class="line"></div><div class="line">var a1=[121312,32423,43,3423,23423,23432,23432,234234,2343243,456,5465,756723,121312,32423,43,3423,23423,23432,23432,234234,2343243,456,5465,756723,121312,32423,43,3423,23423,23432,23432,234234,2343243,456,5465,756723];</div><div class="line">var a2 = [1321,243455,6565,23426,7567,87987,2423,12354,567568,568679123,121312,32423,43,3423,23423,23432,23432,234234,2343243,456,5465,756723,121312,32423,43,3423,23423,23432,23432,234234,2343243,456,5465,756723,121312,32423,43,3423,23423,23432,23432,234234,2343243,456,5465,756723];</div><div class="line">computer_inter(a1,a2,function(err,res)&#123;</div><div class="line"> console.log(res);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//输出</div><div class="line">[ 121312,</div><div class="line">  32423,</div><div class="line">  43,</div><div class="line">  3423,</div><div class="line">  23423,</div><div class="line">  23432,</div><div class="line">  23432,</div><div class="line">  234234,</div><div class="line">  2343243,</div><div class="line">  456,</div><div class="line">  5465,</div><div class="line">  756723,</div><div class="line">  121312,</div><div class="line">  32423,</div><div class="line">  43,</div><div class="line">  3423,</div><div class="line">  23423,</div><div class="line">  23432,</div><div class="line">  23432,</div><div class="line">  234234,</div><div class="line">  2343243,</div><div class="line">  456,</div><div class="line">  5465,</div><div class="line">  756723,</div><div class="line">  121312,</div><div class="line">  32423,</div><div class="line">  43,</div><div class="line">  3423,</div><div class="line">  23423,</div><div class="line">  23432,</div><div class="line">  23432,</div><div class="line">  234234,</div><div class="line">  2343243,</div><div class="line">  456,</div><div class="line">  5465,</div><div class="line">  756723 ]</div></pre></td></tr></table></figure><br>这个方法简单的将较大的数组分割成10个元素一组的数据块，分别计算交叉元素，然后调用proce#nextTick函数，从而允许nodejs处理其他事件或者请求。只有当该任务的队列前面没有事件时，才会继续执行该任务。</p>
+<h3 id="nodejs同步函数-–sync"><a href="#nodejs同步函数-–sync" class="headerlink" title="nodejs同步函数  –sync"></a>nodejs同步函数  –sync</h3><p>nodejs中也有一些同步的API<br>比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var fs= require(&apos;fs&apos;);</div><div class="line">var data = fs.openSync(&apos;info.txt&apos;,&apos;r&apos;);</div><div class="line">var buf = new Buffer(1000);</div><div class="line">var read = fs.readSync(data,buf,0,1000,null);</div><div class="line">fs.closeSync(data)</div></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>传统的编程模式在执行一系列同步、阻塞IO函数时，会等待这些函数执行完成才会继续执行下去，而nodejs的编程模式则是异步执行，当任务执行完成后，会由nodejs进行通知，并不会阻塞其他任务的执行。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js基础/" rel="tag">#js基础</a>
+          
+            <a href="/tags/node/" rel="tag">#node</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/11/ndoelinux/" rel="next" title="非科班程序员之一本正经胡说八道">
+                <i class="fa fa-chevron-left"></i> 非科班程序员之一本正经胡说八道
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/18/wechatApp/" rel="prev" title="微信小程序">
+                微信小程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/11/aync/"
+           data-title="异步与同步编程" data-url="http://new.chongblog.com/2016/12/11/aync/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="假装正在输入" />
+          <p class="site-author-name" itemprop="name">假装正在输入</p>
+          <p class="site-description motion-element" itemprop="description">Jser\nodejs\C\Python\知名扯淡专家\资深渣渣前端er</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统编程方式"><span class="nav-number">1.</span> <span class="nav-text">传统编程方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传统处理方式"><span class="nav-number">2.</span> <span class="nav-text">传统处理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开启多线程模式"><span class="nav-number">2.1.</span> <span class="nav-text">开启多线程模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js"><span class="nav-number">3.</span> <span class="nav-text">node.js</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#非阻塞异步模式"><span class="nav-number">3.1.</span> <span class="nav-text">非阻塞异步模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单线程的nodejs"><span class="nav-number">4.</span> <span class="nav-text">单线程的nodejs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nodejs同步函数-–sync"><span class="nav-number">5.</span> <span class="nav-text">nodejs同步函数  –sync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">假装正在输入</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chongblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
