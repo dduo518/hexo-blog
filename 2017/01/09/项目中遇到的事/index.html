@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,Array," />
+  <meta name="keywords" content="前端,webpack," />
 
 
 
@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="数组是一段线性分配的内存，他通过整数计算偏移并访问其中的元素。纪念一次，读书不认真的错误。。。12、06">
+<meta name="description" content="记2017第一周
+
+开年第一周上了7天班，每天早830晚9，周六小周上班，周日加班，苦，但快乐着…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重读语言精粹---数组">
-<meta property="og:url" content="http://new.chongblog.com/2016/12/06/array161206/index.html">
+<meta property="og:title" content="2017年第一周">
+<meta property="og:url" content="http://new.chongblog.com/2017/01/09/项目中遇到的事/index.html">
 <meta property="og:site_name" content="苟且">
-<meta property="og:description" content="数组是一段线性分配的内存，他通过整数计算偏移并访问其中的元素。纪念一次，读书不认真的错误。。。12、06">
-<meta property="og:updated_time" content="2016-12-10T03:37:21.263Z">
+<meta property="og:description" content="记2017第一周
+
+开年第一周上了7天班，每天早830晚9，周六小周上班，周日加班，苦，但快乐着…">
+<meta property="og:updated_time" content="2017-01-09T15:56:03.912Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重读语言精粹---数组">
-<meta name="twitter:description" content="数组是一段线性分配的内存，他通过整数计算偏移并访问其中的元素。纪念一次，读书不认真的错误。。。12、06">
+<meta name="twitter:title" content="2017年第一周">
+<meta name="twitter:description" content="记2017第一周
+
+开年第一周上了7天班，每天早830晚9，周六小周上班，周日加班，苦，但快乐着…">
 
 
 
@@ -111,7 +117,7 @@
   };
 </script>
 
-  <title> 重读语言精粹---数组 | 苟且 </title>
+  <title> 2017年第一周 | 苟且 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +256,7 @@
             
             
               
-                重读语言精粹---数组
+                2017年第一周
               
             
           </h1>
@@ -262,8 +268,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-06T18:44:12+08:00" content="2016-12-06">
-              2016-12-06
+            <time itemprop="dateCreated" datetime="2017-01-09T20:44:12+08:00" content="2017-01-09">
+              2017-01-09
             </time>
           </span>
 
@@ -276,8 +282,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/js基础/" itemprop="url" rel="index">
-                    <span itemprop="name">js基础</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -292,8 +298,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/06/array161206/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/array161206/" itemprop="commentsCount"></span>
+                <a href="/2017/01/09/项目中遇到的事/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/09/项目中遇到的事/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -316,18 +322,10 @@
       
 
       
-        <blockquote><p>数组是一段线性分配的内存，他通过整数计算偏移并访问其中的元素。<br>纪念一次，读书不认真的错误。。。12、06</p>
+        <blockquote><p>记2017第一周</p>
 </blockquote>
-<a id="more"></a>
-<h2 id="javascript数组存在的形式"><a href="#javascript数组存在的形式" class="headerlink" title="javascript数组存在的形式"></a>javascript数组存在的形式</h2><p>数组是一个性能出色的数据结构，在程序中使用数组，可让一批想同类型的变量使用同一个数组变量名，用下标来区分。他的优点是表达简洁，可读性好，便于循环结构。<br>但是js没有真正的数组数据结构，他只有类似数组的对象<br>在语言精粹中是这样说的<br><blockquote><p>JavaScript提供了一种拥有类数组特性的对象。他把数组的下标转变成字符串，用其作为属性。</p>
-</blockquote><br>就是说，js的数组实质是讲下标变成字符串，然后把字符串用作属性，一个具有整数作为属性的一种特殊对象，这种特殊对象的特殊之处在于他拥有很多数组才具有的内置方法。比如length、splice、slice、pop、push、unshift、shift等等，还具有迭代的特性，比如map，reduce等等<br>下面俩者产生的结构是一样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var arr1 = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;];</div><div class="line">var arr2 = &#123;</div><div class="line">	&apos;0&apos;:&apos;a&apos;,</div><div class="line">	&apos;1&apos;:&apos;b&apos;,</div><div class="line">	&apos;2&apos;:&apos;c&apos;,</div><div class="line">	&apos;3&apos;:&apos;d&apos;,</div><div class="line">	&apos;4&apos;:&apos;e&apos;</div><div class="line">&#125;;</div><div class="line">console.log(arr1[0]) // 输出 a</div><div class="line">console.log(arr2[0]) // 输出 a</div><div class="line">console.log(Array.isArray(arr1)) // 输出true</div><div class="line">console.log(Array.isArray(arr2)) // 输出false</div><div class="line">console.log(typeof arr1) // 输出object</div><div class="line">console.log(typeof arr2) // 输出object</div></pre></td></tr></table></figure><br>但是arr1具有很多内置的方法arr2是不具有的;arr1继承Array.prototype,arr2继承子Object.prototype;<br>在强类型语言中，数组中的元素都是要求相同类型的，但是在js中数组可以使用多种类型混合使用，json数据的存在，也是基于这个怪异的模型。</p>
-<h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr3 = [];</div><div class="line">var arr4 = new Array();</div></pre></td></tr></table></figure>
-<p>每个js数组都有长度，而且这个长度是没有上界的，也就是说length的是动态改变的，在初始化数组的时候可以不指定长度，就算指定了长度也可以对数组进行扩大length属性，可以通过数组元素的变化来动态变化length;<br>设置更大的length不会分配更多的内存空间，但是将length的值设小，会将索引超出length值得元素给删除掉；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr5 = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;];</div><div class="line">console.log(arr5)   //输出 [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;]</div><div class="line">console.log(arr5.length)  //输出5</div><div class="line">arr5.length = 3;</div><div class="line">console.log(arr5)  //输出 [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]</div></pre></td></tr></table></figure></p>
-<h2 id="删除数组"><a href="#删除数组" class="headerlink" title="删除数组"></a>删除数组</h2><p>js中数组就是一个特殊的对象，所以删除数组就是删除对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">delete arr5  </div><div class="line">console.log(arr5)  // 输出undefine</div></pre></td></tr></table></figure></p>
-<h2 id="可枚举"><a href="#可枚举" class="headerlink" title="可枚举"></a>可枚举</h2><p>在js中对象都具有可枚举的属性，那么数组也是一个特殊的对象，那么数组也可以通过for in来进行遍历。但是输出的是无法保证属性的顺序，可用for循环来遍历数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr6 = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;];</div><div class="line">for(let i = 0, len = arr6.length;i&lt;len;i++)&#123;</div><div class="line">console.log(arr6[i])  // 输出 &apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<h2 id="检测数组对象typeof-报错误类型"><a href="#检测数组对象typeof-报错误类型" class="headerlink" title="检测数组对象typeof 报错误类型"></a>检测数组对象typeof 报错误类型</h2><p>由于js中数组是一个特殊的对象，所以用typeof对数组进行检测会得到一个object，<br>可用Array.isArray(arr)方法来进行检测<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr7 = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;];</div><div class="line">console.log(Array.isArray(arr7))  //输出true</div></pre></td></tr></table></figure></p>
-<h2 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h2><p>js提供了一套数组方法都内置到Array的原型链上，所以任何数组都可以通过原型链查找的形式找到数组的方法进而使用该方法，<br>js的数组方法有几个分类，一个是可迭代与不可迭代的，<br>不可迭代：join、reverse、sort、concat、slice、splice、unshift、shift、toString、toLowerString<br>可迭代：forEach、map、filter、every、some、reduce</p>
-<h3 id="添加数组方法"><a href="#添加数组方法" class="headerlink" title="添加数组方法"></a>添加数组方法</h3><p>添加数组方法是直接通过添加到Array的原型链上的（不推荐该方法，容易引发错误）</p>
+<p>开年第一周上了7天班，每天早830晚9，周六小周上班，周日加班，苦，但快乐着…<br><a id="more"></a><br>元旦前三天新接手一个项目，代码看的我头晕，画风奇特，手法“娴熟”，长长的面条，超级多的引用，用对象命名空间手法书写，由于项目时间紧，咬咬牙，这修修那补补，好不容易改造成单例模式。</p>
+<h2 id="纸上得来终觉浅"><a href="#纸上得来终觉浅" class="headerlink" title="纸上得来终觉浅"></a>纸上得来终觉浅</h2><h3 id="这一周面临的问题"><a href="#这一周面临的问题" class="headerlink" title="这一周面临的问题"></a>这一周面临的问题</h3><p>1、前端跨域请求文件<br>这个是个老问题，所有的前端人员都面临过的头疼的问题，在这之前还没有真正的试过前端跨域请求文件，刚遇到的时候，也是慌了神了，感觉自己白看了那么多的文章，是的，纸上得来终觉浅。这个问题还没解决，等这个版本上线之后写个版本解决。<br>2、文件请求加载顺序<br>由于项目中引入了很多的外部模块，所以带有大量的文件数量，压缩合并，是一个方法，grunt自动化压缩，但是也不是最终解决的方案，下午看了下webpack，感觉模块化加载挺方便实用，接下来会用webpack前端构建工具<br>3、文件上传/下载<br>文件上传下载，其中最大的问题就是断点续传的问题，文件上传下载一直想要去研究，这次，终于可以研究一下了，大体的机制就是。先将文件转成二进制编码然后，一节节的上传，对于文件的编码还有待研究<br>4、正则匹配<br>由于需要过滤出html表签来解决特殊输入的标识，然后将它进行转码在发送到后端，或者在后端请求的数据中需要将数据过滤出特定的标识符然后转义成前端输出的格式。<br>5、图片加载<br>大量的表情图片需要加载，面对470+的表情图，有俩种解决方案，最终的解决方案无非就是拼成雪碧图，最关键的是这张雪碧图的图片也很大，470+张也有700kb上下了，如果给他分开成多张雪碧图，也有问题，那就是图片的大小减少了，文件的请求数量又相对应的增加了，在这个过程中也试着把他转码成base64编码格式，但是，转码成base64之后，又遇到了一个问题，css文件又增大了，看了一下，有700kb，<br>但是以上俩种，还是感觉base64编码格式更合适。无论是雪碧图还是base64编码，都要重新写css中的background定位，怎么都要加大css文件的大小，外加700+kb的图片，还不如就一个csss文件700+kb。压缩完也就几十kb.<br>6、socket.io<br>socket.io的问题是在每个建立连接，接收响应，之后断开连接之后，要进行对事件解除绑定。接下来要看socket.io的API文件。<br>7、对象的引用<br>在对代码进行修修补补的时候，最头疼的就是，利用了大量的引用，最后清除的时候，无法直接确定是否清除干净，以后，尽量避免。<br>以上是这周遇到的问题，很多问题遇到，由于项目紧张着急上线，还未做深入研究，接下来要对下个版本更新的时候，将对上面的所有问题深入的研究。</p>
 
       
     </div>
@@ -349,9 +347,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+            <a href="/tags/前端/" rel="tag">#前端</a>
           
-            <a href="/tags/Array/" rel="tag">#Array</a>
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
           
         </div>
       
@@ -360,17 +358,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/03/phoneWeb/" rel="next" title="移动端滚动解决方案">
-                <i class="fa fa-chevron-left"></i> 移动端滚动解决方案
+              <a href="/2016/12/18/wechatApp/" rel="next" title="微信小程序">
+                <i class="fa fa-chevron-left"></i> 微信小程序
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/06/category/" rel="prev" title="关于一分类排序算法">
-                关于一分类排序算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -396,8 +390,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/06/array161206/"
-           data-title="重读语言精粹---数组" data-url="http://new.chongblog.com/2016/12/06/array161206/">
+      <div class="ds-thread" data-thread-key="2017/01/09/项目中遇到的事/"
+           data-title="2017年第一周" data-url="http://new.chongblog.com/2017/01/09/项目中遇到的事/">
       </div>
     
   </div>
@@ -488,7 +482,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript数组存在的形式"><span class="nav-number">1.</span> <span class="nav-text">javascript数组存在的形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数组"><span class="nav-number">2.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数组"><span class="nav-number">3.</span> <span class="nav-text">删除数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可枚举"><span class="nav-number">4.</span> <span class="nav-text">可枚举</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测数组对象typeof-报错误类型"><span class="nav-number">5.</span> <span class="nav-text">检测数组对象typeof 报错误类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组方法"><span class="nav-number">6.</span> <span class="nav-text">数组方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加数组方法"><span class="nav-number">6.1.</span> <span class="nav-text">添加数组方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#纸上得来终觉浅"><span class="nav-number">1.</span> <span class="nav-text">纸上得来终觉浅</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这一周面临的问题"><span class="nav-number">1.1.</span> <span class="nav-text">这一周面临的问题</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
