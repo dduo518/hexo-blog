@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="node,linux," />
+  <meta name="keywords" content="前端," />
 
 
 
@@ -84,20 +84,22 @@
 
 
 
-<meta name="description" content="linux安装有俩种方式1.编译好的文件2.通过源码编译">
+<meta name="description" content="记2017第一周
+
+开年第一周上了7天班，每天早830晚9，周六小周上班，周日加班，苦，但快乐着…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux下安装node">
-<meta property="og:url" content="http://new.chongblog.com/2016/12/10/ndoelinux/index.html">
+<meta property="og:title" content="2017年第一周">
+<meta property="og:url" content="http://new.chongblog.com/2017/01/09/live/index.html">
 <meta property="og:site_name" content="苟且">
-<meta property="og:description" content="linux安装有俩种方式1.编译好的文件2.通过源码编译">
-<meta property="og:image" content="http://new.chongblog.com/images/111.png">
-<meta property="og:image" content="http://new.chongblog.com/images/222.png">
-<meta property="og:image" content="http://new.chongblog.com/images/333.png">
-<meta property="og:updated_time" content="2016-12-10T16:23:19.474Z">
+<meta property="og:description" content="记2017第一周
+
+开年第一周上了7天班，每天早830晚9，周六小周上班，周日加班，苦，但快乐着…">
+<meta property="og:updated_time" content="2017-02-07T16:05:11.941Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux下安装node">
-<meta name="twitter:description" content="linux安装有俩种方式1.编译好的文件2.通过源码编译">
-<meta name="twitter:image" content="http://new.chongblog.com/images/111.png">
+<meta name="twitter:title" content="2017年第一周">
+<meta name="twitter:description" content="记2017第一周
+
+开年第一周上了7天班，每天早830晚9，周六小周上班，周日加班，苦，但快乐着…">
 
 
 
@@ -115,7 +117,7 @@
   };
 </script>
 
-  <title> linux下安装node | 苟且 </title>
+  <title> 2017年第一周 | 苟且 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +256,7 @@
             
             
               
-                linux下安装node
+                2017年第一周
               
             
           </h1>
@@ -266,8 +268,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-10T22:44:12+08:00" content="2016-12-10">
-              2016-12-10
+            <time itemprop="dateCreated" datetime="2017-01-09T00:00:00+08:00" content="2017-01-09">
+              2017-01-09
             </time>
           </span>
 
@@ -280,8 +282,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -296,8 +298,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/10/ndoelinux/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/ndoelinux/" itemprop="commentsCount"></span>
+                <a href="/2017/01/09/live/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/09/live/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -320,11 +322,17 @@
       
 
       
-        <p>linux安装有俩种方式<br>1.编译好的文件<br>2.通过源码编译<br><a id="more"></a></p>
-<h3 id="编译好的文件"><a href="#编译好的文件" class="headerlink" title="编译好的文件"></a>编译好的文件</h3><p>去官网下载相应版本的安装包，然后解压放到终端<br>简单说就是解压后，在bin文件夹中已经存在node以及npm，如果你进入到对应文件的中执行命令行一点问题都没有，不过不是全局的，所以将这个设置为全局就好了。</p>
-<h3 id="通过源码编译"><a href="#通过源码编译" class="headerlink" title="通过源码编译"></a>通过源码编译</h3><h4 id="去官网下载源码"><a href="#去官网下载源码" class="headerlink" title="去官网下载源码"></a>去官网下载源码</h4><img src="/images/111.png" width="1200" height="600" title="picture">
-<h4 id="通过终端下载"><a href="#通过终端下载" class="headerlink" title="通过终端下载"></a>通过终端下载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install g++ libssl-dev apache2 curl</div><div class="line">$ curl -O http://nodejs.org/dist/node-v6.2.0.tar.gz</div><div class="line">$ tar -zxvf node-v6.2.0.tar.gz</div><div class="line">$ cd node-v6.2.0.tar.gz</div><div class="line">$ ./configure</div><div class="line">$ make </div><div class="line">$ make test </div><div class="line">$ make install</div></pre></td></tr></table></figure>
-<p><a href="http://nodejs.org/dist/node-v6.2.0.tar.gz" target="_blank" rel="external">http://nodejs.org/dist/node-v6.2.0.tar.gz</a> 这个链接可直接点击源码下载，查找相应的版本输入终端<br><img src="/images/222.png" width="1200" height="600" title="picture"><br>编译时一个超级漫长的过程<br><img src="/images/333.png" width="1200" height="600" title="picture"><br>$ node -v<br>显示 v6.2.0<br>安装成功</p>
+        <blockquote><p>记2017第一周</p>
+</blockquote>
+<p>开年第一周上了7天班，每天早830晚9，周六小周上班，周日加班，苦，但快乐着…</p>
+<a id="more"></a>
+<h1 id="纸上得来终觉浅"><a href="#纸上得来终觉浅" class="headerlink" title="纸上得来终觉浅"></a>纸上得来终觉浅</h1><h2 id="这一周面临的问题"><a href="#这一周面临的问题" class="headerlink" title="这一周面临的问题"></a>这一周面临的问题</h2><h3 id="1、前端跨域请求文件"><a href="#1、前端跨域请求文件" class="headerlink" title="1、前端跨域请求文件"></a>1、前端跨域请求文件</h3><p>这个是个老问题，所有的前端人员都面临过的头疼的问题，在这之前还没有真正的试过前端跨域请求文件，刚遇到的时候，也是慌了神了，感觉自己白看了那么多的文章，是的，纸上得来终觉浅。这个问题还没解决，等这个版本上线之后写个版本解决。</p>
+<h3 id="2、文件请求加载顺序"><a href="#2、文件请求加载顺序" class="headerlink" title="2、文件请求加载顺序"></a>2、文件请求加载顺序</h3><p>由于项目中引入了很多的外部模块，所以带有大量的文件数量，压缩合并，是一个方法，grunt自动化压缩，但是也不是最终解决的方案，下午看了下webpack，感觉模块化加载挺方便实用，接下来会用webpack前端构建工具</p>
+<h3 id="3、文件上传-下载"><a href="#3、文件上传-下载" class="headerlink" title="3、文件上传/下载"></a>3、文件上传/下载</h3><p>文件上传下载，其中最大的问题就是断点续传的问题，文件上传下载一直想要去研究，这次，终于可以研究一下了，大体的机制就是。先将文件转成二进制编码然后，一节节的上传，对于文件的编码还有待研究</p>
+<h3 id="4、正则匹配"><a href="#4、正则匹配" class="headerlink" title="4、正则匹配"></a>4、正则匹配</h3><p>由于需要过滤出html表签来解决特殊输入的标识，然后将它进行转码在发送到后端，或者在后端请求的数据中需要将数据过滤出特定的标识符然后转义成前端输出的格式。</p>
+<h3 id="5、图片加载"><a href="#5、图片加载" class="headerlink" title="5、图片加载"></a>5、图片加载</h3><p>大量的表情图片需要加载，面对470+的表情图，有俩种解决方案，最终的解决方案无非就是拼成雪碧图，最关键的是这张雪碧图的图片也很大，470+张也有700kb上下了，如果给他分开成多张雪碧图，也有问题，那就是图片的大小减少了，文件的请求数量又相对应的增加了，在这个过程中也试着把他转码成base64编码格式，但是，转码成base64之后，又遇到了一个问题，css文件又增大了，看了一下，有700kb，<br>但是以上俩种，还是感觉base64编码格式更合适。无论是雪碧图还是base64编码，都要重新写css中的background定位，怎么都要加大css文件的大小，外加700+kb的图片，还不如就一个csss文件700+kb。压缩完也就几十kb.</p>
+<h3 id="6、socket-io"><a href="#6、socket-io" class="headerlink" title="6、socket.io"></a>6、socket.io</h3><p>socket.io的问题是在每个建立连接，接收响应，之后断开连接之后，要进行对事件解除绑定。接下来要看socket.io的API文件。</p>
+<h3 id="7、对象的引用"><a href="#7、对象的引用" class="headerlink" title="7、对象的引用"></a>7、对象的引用</h3><p>在对代码进行修修补补的时候，最头疼的就是，利用了大量的引用，最后清除的时候，无法直接确定是否清除干净，以后，尽量避免。<br>以上是这周遇到的问题，很多问题遇到，由于项目紧张着急上线，还未做深入研究，接下来要对下个版本更新的时候，将对上面的所有问题深入的研究。</p>
 
       
     </div>
@@ -346,9 +354,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/node/" rel="tag">#node</a>
-          
-            <a href="/tags/linux/" rel="tag">#linux</a>
+            <a href="/tags/前端/" rel="tag">#前端</a>
           
         </div>
       
@@ -357,16 +363,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/10/模块化组件化的浅见/" rel="next" title="模块化与组件化的浅见">
-                <i class="fa fa-chevron-left"></i> 模块化与组件化的浅见
+              <a href="/2016/12/31/live/" rel="next" title="这么美的阳光怎能辜负">
+                <i class="fa fa-chevron-left"></i> 这么美的阳光怎能辜负
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/11/ndoelinux/" rel="prev" title="非科班程序员之一本正经胡说八道">
-                非科班程序员之一本正经胡说八道 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/24/live0124/" rel="prev" title="开年2017第一个月">
+                开年2017第一个月 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -393,8 +399,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/10/ndoelinux/"
-           data-title="linux下安装node" data-url="http://new.chongblog.com/2016/12/10/ndoelinux/">
+      <div class="ds-thread" data-thread-key="2017/01/09/live/"
+           data-title="2017年第一周" data-url="http://new.chongblog.com/2017/01/09/live/">
       </div>
     
   </div>
@@ -485,7 +491,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译好的文件"><span class="nav-number">1.</span> <span class="nav-text">编译好的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过源码编译"><span class="nav-number">2.</span> <span class="nav-text">通过源码编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#去官网下载源码"><span class="nav-number">2.1.</span> <span class="nav-text">去官网下载源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过终端下载"><span class="nav-number">2.2.</span> <span class="nav-text">通过终端下载</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#纸上得来终觉浅"><span class="nav-number">1.</span> <span class="nav-text">纸上得来终觉浅</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这一周面临的问题"><span class="nav-number">1.1.</span> <span class="nav-text">这一周面临的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、前端跨域请求文件"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、前端跨域请求文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、文件请求加载顺序"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、文件请求加载顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、文件上传-下载"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、文件上传/下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、正则匹配"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、正则匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、图片加载"><span class="nav-number">1.1.5.</span> <span class="nav-text">5、图片加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、socket-io"><span class="nav-number">1.1.6.</span> <span class="nav-text">6、socket.io</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、对象的引用"><span class="nav-number">1.1.7.</span> <span class="nav-text">7、对象的引用</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
