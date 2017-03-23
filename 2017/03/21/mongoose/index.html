@@ -1,0 +1,695 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="nodejs," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/bitbug_favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="根据自己的渣渣的英语看mongose文档整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongoose api 翻译">
+<meta property="og:url" content="http://new.chongblog.com/2017/03/21/mongoose/index.html">
+<meta property="og:site_name" content="苟且">
+<meta property="og:description" content="根据自己的渣渣的英语看mongose文档整理">
+<meta property="og:updated_time" content="2017-03-23T14:59:31.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongoose api 翻译">
+<meta name="twitter:description" content="根据自己的渣渣的英语看mongose文档整理">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> mongoose api 翻译 | 苟且 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=60039671";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">苟且</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">敬畏技术、拓展知识、见微知著</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                mongoose api 翻译
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-21T18:44:12+08:00" content="2017-03-21">
+              2017-03-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/nodejs/" itemprop="url" rel="index">
+                    <span itemprop="name">nodejs</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/nodejs/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/21/mongoose/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/21/mongoose/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>根据自己的渣渣的英语看mongose文档整理<br><a id="more"></a></p>
+<h2 id="引用与连接数据库"><a href="#引用与连接数据库" class="headerlink" title="引用与连接数据库"></a>引用与连接数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var mongoose = require(&apos;mongoose&apos;);</div><div class="line">mongoose.connect(&apos;mongodb://localhost/page&apos;); </div></pre></td></tr></table></figure>
+<p>目前我们已经连接了一运行在本地的数据库，并且创建了一个test数据库，接下来我们需要知道我们的数据库是否连接成功，一旦连接成功会执行回调，所有的操作都在回调中完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var db = mongoose.connection;</div><div class="line">db.on(&apos;error&apos;, console.error.bind(console, &apos;connection error:&apos;));</div><div class="line">db.once(&apos;open&apos;, function (callback) &#123;</div><div class="line">  console.log(&apos;数据库连接成功&apos;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="schema"><a href="#schema" class="headerlink" title="schema"></a>schema</h2><p>在mongoose中，所有事情都源自于模式(schema)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"> // 1.先定义一个模式</div><div class="line"> // 2.在模式中增加方法，且必须在定义模型前面增加(静态方法与实例化方法)</div><div class="line"> // 3.在定义一个模型</div><div class="line"> // 4.实例化模型</div><div class="line">var testSchema = new mongoose.Schema(&#123;</div><div class="line">	id:Number,</div><div class="line">	content:String,</div><div class="line">	date:Date,</div><div class="line">	arr:Array,</div><div class="line">	obj:Object</div><div class="line">&#125;)</div><div class="line">// 添加实例化方法</div><div class="line">testSchema.methods.getContent_methods = function () &#123;</div><div class="line">  var test = this.content</div><div class="line">    ? &quot;testSchema getContent_methods is &quot; + this.content</div><div class="line">    : &quot;I don&apos;t have a getContent_methods&quot;</div><div class="line">  console.log(test);</div><div class="line">&#125;</div><div class="line">// 添加静态方法</div><div class="line">testSchema.statics.getContent_statics = function () &#123;</div><div class="line">  var test = this.content</div><div class="line">    ? &quot;testSchema getContent_statics method is &quot; + this.content</div><div class="line">    : &quot;I don&apos;t have a getContent_statics method&quot;</div><div class="line">  console.log(test);</div><div class="line">&#125;</div><div class="line">var TestModel = mongoose.model(&apos;test&apos;,testSchema);</div><div class="line"></div></pre></td></tr></table></figure><br>一个模型就是我们构造的一个文档，在上面的这个例子中，每个文档都将带有test的属性与我们在模式中声明的行为<br>接下来实例化一个文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var test = new TestModel(&#123;</div><div class="line">	id:123,</div><div class="line">	content:&apos;content&apos;,</div><div class="line">	date:new Date(),</div><div class="line">	arr:[1,2,3],</div><div class="line">	obj:&#123;</div><div class="line">	  firstName:&apos;zheng&apos;,</div><div class="line">	  lastName:&apos;chong&apos;</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line">// 调用实例化方法</div><div class="line">test.getContent_methods() // &quot;testSchema getContent_methods method is content&quot;</div><div class="line">// 调用静态方法</div><div class="line">TestModel.getContent_statics() // &quot;testSchema getContent_statics method is content&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>mongodb支持2级索引，当创建符合索引的时候更是必须的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var animalSchema = new Schema(&#123;</div><div class="line">  name: String,</div><div class="line">  type: String,</div><div class="line">  tags: &#123; type: [String], index: true &#125; </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="Virtuals"><a href="#Virtuals" class="headerlink" title="Virtuals"></a>Virtuals</h3><p>虚拟属性能设置和取得文档的属性但是不能持久化到mongodb中，对于格式化和结合字段是非常的有用的，同时用于设置单个值存储到多个值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">// 定义模式</div><div class="line">var personSchema = new Schema(&#123;</div><div class="line">  name: &#123;</div><div class="line">    first: String,</div><div class="line">    last: String</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">// 定义模型</div><div class="line">var Person = mongoose.model(&apos;Person&apos;, personSchema);</div><div class="line">// 实例化文档</div><div class="line">var bad = new Person(&#123;</div><div class="line">    name: &#123; first: &apos;zheng&apos;, last: &apos;chong&apos; &#125;</div><div class="line">&#125;);</div><div class="line">console.log(bad.name.first + &apos; &apos; + bad.name.last); // &lt;&lt;&lt; zheng chong</div><div class="line">// 或者可以用一下方法定义</div><div class="line">personSchema.virtual(&apos;name.full&apos;).get(function () &#123;</div><div class="line">  return this.name.first + &apos; &apos; + this.name.last;</div><div class="line">&#125;);</div><div class="line">console.log(&apos;%s is insane&apos;, bad.name.full); // &lt;&lt;&lt; zheng chong is insane</div><div class="line">// mongoose 也可以通过设置虚拟属性</div><div class="line">personSchema.virtual(&apos;name.full&apos;).set(function (name) &#123;</div><div class="line">  var split = name.split(&apos; &apos;);</div><div class="line">  this.name.first = split[0];</div><div class="line">  this.name.last = split[1];</div><div class="line">&#125;);</div><div class="line">mad.name.full = &apos;zheng chong&apos;;</div><div class="line">console.log(mad.name.first); // &lt;&lt;&lt; zheng</div><div class="line">console.log(mad.name.last);  // &lt;&lt;&lt; chong</div></pre></td></tr></table></figure></p>
+<h3 id="配置属性-options"><a href="#配置属性-options" class="headerlink" title="配置属性(options)"></a>配置属性(options)</h3><p>模式可配置一些选项，可以直接传递给构造函数或者调用set进行设置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">new Schema(&#123;..&#125;, options);</div><div class="line">// 或者</div><div class="line">var schema = new Schema(&#123;..&#125;);</div><div class="line">schema.set(option, value);</div></pre></td></tr></table></figure></p>
+<h4 id="option-autoIndex"><a href="#option-autoIndex" class="headerlink" title="option: autoIndex"></a>option: autoIndex</h4><p>在应用程序启动时,mongoose发送ensureIndex命令来声明的每个索引。mongoosev3,默认在后台创建索引。如果你想禁用自动创建功能,手动处理在创建索引时,设置模式自动索引选项为false和使用ensureIndexes方法模型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var schema = new Schema(&#123;..&#125;, &#123; autoIndex: false &#125;);</div><div class="line">var Clock = mongoose.model(&apos;Clock&apos;, schema);</div><div class="line">Clock.ensureIndexes(callback);</div></pre></td></tr></table></figure></p>
+<h4 id="option-bufferCommands"><a href="#option-bufferCommands" class="headerlink" title="option: bufferCommands"></a>option: bufferCommands</h4><p>缓冲区命令</p>
+<h4 id="option-capped"><a href="#option-capped" class="headerlink" title="option: capped"></a>option: capped</h4><p>设置集合上限</p>
+<h4 id="option-collection"><a href="#option-collection" class="headerlink" title="option: collection"></a>option: collection</h4><p>配置集合名字</p>
+<h4 id="option-id-id"><a href="#option-id-id" class="headerlink" title="option: id/_id"></a>option: id/_id</h4><p>mongodb默认为每一个文档配置一个_id,如果不想要这个默认id可以将设置为false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">// id</div><div class="line">// 默认</div><div class="line">var schema = new Schema(&#123; name: String &#125;);</div><div class="line">var Page = mongoose.model(&apos;Page&apos;, schema);</div><div class="line">var p = new Page(&#123; name: &apos;mongodb.org&apos; &#125;);</div><div class="line">console.log(p.id); // &apos;50341373e894ad16347efe01&apos;</div><div class="line">// 禁掉id</div><div class="line">var schema = new Schema(&#123; name: String &#125;, &#123; id: false &#125;);</div><div class="line">var Page = mongoose.model(&apos;Page&apos;, schema);</div><div class="line">var p = new Page(&#123; name: &apos;mongodb.org&apos; &#125;);</div><div class="line">console.log(p.id); // undefined</div><div class="line">// ---------------------分割线--------------------</div><div class="line">// _id </div><div class="line">// 默认</div><div class="line">var schema = new Schema(&#123; name: String &#125;);</div><div class="line">var Page = mongoose.model(&apos;Page&apos;, schema);</div><div class="line">var p = new Page(&#123; name: &apos;mongodb.org&apos; &#125;);</div><div class="line">console.log(p); // &#123; _id: &apos;50341373e894ad16347efe01&apos;, name: &apos;mongodb.org&apos; &#125;</div><div class="line">// 禁掉 _id</div><div class="line">var schema = new Schema(&#123; name: String &#125;, &#123; _id: false &#125;);</div><div class="line">// 假设不设置 _id 为false之后</div><div class="line">// var schema = new Schema(&#123; name: String &#125;);</div><div class="line">// schema.set(&apos;_id&apos;, false);</div><div class="line">var Page = mongoose.model(&apos;Page&apos;, schema);</div><div class="line">var p = new Page(&#123; name: &apos;mongodb.org&apos; &#125;);</div><div class="line">console.log(p); // &#123; name: &apos;mongodb.org&apos; &#125;</div><div class="line">// 当保存的时候MongoDB会自动创建一个_id </div><div class="line">p.save(function (err) &#123;</div><div class="line">  if (err) return handleError(err);</div><div class="line">  Page.findById(p, function (err, doc) &#123;</div><div class="line">    if (err) return handleError(err);</div><div class="line">    console.log(doc); // &#123; name: &apos;mongodb.org&apos;, _id: &apos;50341373e894ad16347efe12&apos; &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="SchemaTypes"><a href="#SchemaTypes" class="headerlink" title="SchemaTypes"></a>SchemaTypes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">var schema = new Schema(&#123;</div><div class="line">  name:    String,</div><div class="line">  binary:  Buffer,</div><div class="line">  living:  Boolean,</div><div class="line">  updated: &#123; type: Date, default: Date.now &#125;</div><div class="line">  age:     &#123; type: Number, min: 18, max: 65 &#125;</div><div class="line">  mixed:   Schema.Types.Mixed,</div><div class="line">  _someId: Schema.Types.ObjectId,</div><div class="line">  array:      [],</div><div class="line">  ofString:   [String],</div><div class="line">  ofNumber:   [Number],</div><div class="line">  ofDates:    [Date],</div><div class="line">  ofBuffer:   [Buffer],</div><div class="line">  ofBoolean:  [Boolean],</div><div class="line">  ofMixed:    [Schema.Types.Mixed],</div><div class="line">  ofObjectId: [Schema.Types.ObjectId],</div><div class="line">  nested: &#123;</div><div class="line">    stuff: &#123; type: String, lowercase: true, trim: true &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">// test</div><div class="line">var Thing = mongoose.model(&apos;Thing&apos;, schema);</div><div class="line">var m = new Thing;</div><div class="line">m.name = &apos;Statue of Liberty&apos;</div><div class="line">m.age = 125;</div><div class="line">m.updated = new Date;</div><div class="line">m.binary = new Buffer(0);</div><div class="line">m.living = false;</div><div class="line">m.mixed = &#123; any: &#123; thing: &apos;i want&apos; &#125; &#125;;</div><div class="line">m.markModified(&apos;mixed&apos;);</div><div class="line">m._someId = new mongoose.Types.ObjectId;</div><div class="line">m.array.push(1);</div><div class="line">m.ofString.push(&quot;strings!&quot;);</div><div class="line">m.ofNumber.unshift(1,2,3,4);</div><div class="line">m.ofDate.addToSet(new Date);</div><div class="line">m.ofBuffer.pop();</div><div class="line">m.ofMixed = [1, [], &apos;three&apos;, &#123; four: 5 &#125;];</div><div class="line">m.nested.stuff = &apos;good&apos;;</div><div class="line">m.save(callback);</div></pre></td></tr></table></figure>
+<h3 id="部分api"><a href="#部分api" class="headerlink" title="部分api"></a>部分api</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var testSchema = new mongoose.Schema(&#123;</div><div class="line">	id:Number,</div><div class="line">	content:String,</div><div class="line">	date:Date,</div><div class="line">	arr:Array,</div><div class="line">	obj:Object</div><div class="line">&#125;)</div><div class="line">var TestModel = mongoose.model(&apos;test&apos;,testSchema);</div><div class="line">// var id = 1234;</div><div class="line">var test = new TestModel(&#123;</div><div class="line">	id:Math.random(),</div><div class="line">	content:&apos;test&apos;,</div><div class="line">	date:new Date(),</div><div class="line">	arr:[&apos;a&apos;,&apos;b&apos;],</div><div class="line">	obj:&#123;</div><div class="line">		testObj:&#123;</div><div class="line">			content:&apos;content&apos;</div><div class="line">		&#125;,</div><div class="line">		testobj2:&apos;testobj2&apos;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>/<strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></p>
+<ul>
+<li>查找<br><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong>/<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 返回的是更新前的数据</div><div class="line">TestModel.findByIdAndUpdate(&#123;_id:&apos;58cd528c5786f614e4710072&apos;&#125;,&#123;$set:&#123;content:&apos;123aaaa456&apos;&#125;&#125;,function (err,result) &#123;</div><div class="line">	if(err) throw err;</div><div class="line">	console.log(result)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+/<strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong> </li>
+<li>嵌套模型 —————— 子文档<br><strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong>/<br>// 子模型<br>var  childSchema = new mongoose.Schema({ name:String });<br>// // 父模型<br>// * 子文档是父文档的一个数组<br>// 子文档有所有与父文档相同的方法，唯一的区别是他们不是单独保存，只有最高级的父文档保存的时候才被保存<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">var parentSchema = new mongoose.Schema(&#123;</div><div class="line">  children: [childSchema],</div><div class="line">  content:String,</div><div class="line">  obj:Object,</div><div class="line">  first:String,</div><div class="line">  last:String,</div><div class="line">  occupation:Number,</div><div class="line">  name:Object</div><div class="line">&#125;)</div><div class="line">var Parent = mongoose.model(&apos;parent&apos;,parentSchema);</div><div class="line">var parent = new Parent();</div><div class="line">var parent = new Parent(&#123;</div><div class="line">	children:[&#123;name:&apos;childs_1&apos;&#125;,&#123;name:&apos;childs_2&apos;&#125;],</div><div class="line">	content:&apos;content1&apos;,</div><div class="line">	obj:&#123;</div><div class="line">		content:&#123;</div><div class="line">			string:&apos;string&apos;</div><div class="line">		&#125;,</div><div class="line">		string:&apos;string&apos;</div><div class="line">	&#125;,</div><div class="line">	first:&apos;first1&apos;,</div><div class="line">	last:&apos;last1&apos;,</div><div class="line">	occupation:&apos;123213324&apos;,</div><div class="line">	name:&#123;</div><div class="line">		first:&apos;zheng&apos;,</div><div class="line">		last:&apos;chong&apos;</div><div class="line">	&#125;,</div><div class="line">	age:&apos;12&apos;</div><div class="line">	&#125;);</div><div class="line">parent.children[0].name = &apos;Matthew&apos;;</div><div class="line">parent.save(function (err,result) &#123;</div><div class="line">	if(err) throw err;</div><div class="line">	console.log(result)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+/<strong><strong><strong><strong><strong><strong><em>*</em></strong></strong></strong></strong></strong></strong><ul>
+<li>查找子文档<br><strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong>/<br>// 每个子文档都有_id 文档嵌套都有个特别方法，通过该_id 来寻找这个文档<br>// var doc = parent.children.id(‘58cd5e4aa8b2d905345258b7’);<br>// console.log(doc) // 该方法验证不了<br>/**</li>
+<li>增加子文档的方法 比如 push / unshift / addToSet<br>*/<br>// ?这个方法在只有开启执行 parent.save()的时候才会生效</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;&lt;&lt;&lt;&lt;&lt;&lt;&lt;--------------&gt;&gt;&gt;&gt;&apos;)</div><div class="line">parent.children.push(&#123;name:&apos;addDocParentaaa&apos;&#125;);</div><div class="line">var subdoc = parent.children[0];</div><div class="line">console.log(subdoc)</div><div class="line">console.log(subdoc.isNew) //&gt;&gt;&gt;&gt;&gt; true</div><div class="line"> -- 保存</div><div class="line">parent.save(function (err,data) &#123;</div><div class="line">	if( err ) throw err;</div><div class="line">	console.log(data)</div><div class="line">&#125;)</div><div class="line">console.log(&apos;&lt;&lt;&lt;&lt;&lt;&lt;&lt;--------------&gt;&gt;&gt;&gt;&apos;)</div><div class="line">// * 子文档也可以通过create方法来创建而不用通过增加他们到数组</div><div class="line">var newdoc = parent.children.create(&#123; name: &apos;Aaron&apos; &#125;);</div><div class="line">console.log(newdoc) //  &gt;&gt;&gt; 如何保存他们 </div><div class="line">parent.save(function (err,result) &#123;</div><div class="line">	if(err) throw err;</div><div class="line">	console.log(result)</div><div class="line">&#125;)</div><div class="line">console.log(&apos;&lt;&lt;&lt;&lt;&lt;&lt;&lt;--------------&gt;&gt;&gt;&gt;&apos;)</div></pre></td></tr></table></figure>
+<p>/<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p>
+<ul>
+<li>删除文档 </li>
+<li>每个子文档都好他们自己删除的方法 method remove<br><strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong>/<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var rmdoc = parent.children.id(&apos;58cd66342a0b9909e42e6360&apos;);</div><div class="line">console.log(rmdoc)</div><div class="line">parent.save(function (err,data) &#123;</div><div class="line">	if(err) throw err;</div><div class="line">	console.log(data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+/<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><ul>
+<li>查询语句<br><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>/<br>// 过滤多余的字段，只要name跟occupation跟content字段<br>Parent.findOne({‘name.last’:’chong’},’name occupation content’).exec(function (err,result) {<br>if(err) throw err;<br>console.log(‘&lt;&lt;&lt;————&gt;&gt;&gt;’)<br>// console.log(result)<br>})<br>// 找到第一个满足条件的时候就返回结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Parent.findOne(&#123;&apos;name.last&apos;:&apos;chong&apos;&#125;).exec(function (err,result) &#123;</div><div class="line">	if(err) throw err;</div><div class="line">console.log(&apos;&lt;&lt;&lt;------------&gt;&gt;&gt;&apos;)</div><div class="line">	// console.log(result)</div><div class="line">&#125;)</div><div class="line">// 找到所有满足条件的结果返回</div><div class="line">Parent.find(&#123;&apos;name.last&apos;:&apos;chong&apos;&#125;).exec(function (err,result) &#123;</div><div class="line">	if(err) throw err;</div><div class="line">	// console.log(result)</div><div class="line">console.log(&apos;&lt;&lt;&lt;------------&gt;&gt;&gt;&apos;)</div><div class="line">&#125;)</div><div class="line">var query = Parent.find(&#123;&apos;content&apos;:&apos;content&apos;&#125;);</div><div class="line">query.select(&apos;name occupation&apos;);</div><div class="line">query.exec(function (err,result) &#123;</div><div class="line">	if(err) throw err;</div><div class="line">// console.log(result)</div><div class="line">	console.log(&apos;&lt;&lt;&lt;------------&gt;&gt;&gt;&apos;)</div><div class="line">&#125;)</div><div class="line">var query_A = Parent.find(&#123;content:/content1/&#125;)</div><div class="line">query_A</div><div class="line">// .limit(3)</div><div class="line">.where(&apos;occupation&apos;).gt(123456)</div><div class="line">.select(&apos;name content occupation&apos;)</div><div class="line">.exec(function (err,data) &#123;</div><div class="line">	if(err) throw err;</div><div class="line">	// console.log(data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+/<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></li>
+</ul>
+</li>
+<li>校验 </li>
+<li><p>每个错误校验都有提供type/ path / value 属性<br><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var toySchema = new mongoose.Schema(&#123;</div><div class="line">	name:String,</div><div class="line">	color:String</div><div class="line">&#125;)</div><div class="line">var Toy = mongoose.model(&apos;toy&apos;,toySchema);</div><div class="line">// 该方法会把在存储的时候过滤值，没有通过校验的值是无法保存</div><div class="line">Toy.schema.path(&apos;color&apos;).validate(function (value) &#123;</div><div class="line">	return /blue|green|white|red|orange/i.test(value); </div><div class="line">&#125;,&apos;Invalid color&apos;);</div><div class="line">var toy = new Toy(&#123;</div><div class="line">	name:&apos;color&apos;,</div><div class="line">	color:&apos;blue&apos;</div><div class="line">&#125;)</div><div class="line">toy.save(function (err,data) &#123;</div><div class="line">	// 过滤校验之后文档同样具有一个错误的属性</div><div class="line">	// toy.errors.color.message === err.errors.color.message</div><div class="line">	if(err) console.error(err.errors.color);</div><div class="line">	// console.log(data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>/<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p>
+<ul>
+<li>中间件</li>
+<li>中间件事执行在文档层面(document leve)的不是执行在model层面(Model level)的<br>var schema = new Schema(..);<br>schema.pre(‘save’, function (next) {<br>   // do stuff<br>   next();<br>});</li>
+<li>错误处理中间件<br>schema.pre(‘save’, function (next) {<br>var err = new Error(‘something went wrong’);<br>next(err);<br>});<br>// later…<br>myDoc.save(function (err) {<br>console.log(err.message) // something went wrong<br>});<br><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>/</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>population<br>*/<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"> var Schema = mongoose.Schema</div><div class="line">  </div><div class="line">var personSchema = Schema(&#123;</div><div class="line">  _id     : Number,</div><div class="line">  name    : String,</div><div class="line">  age     : Number,</div><div class="line">  stories : [&#123; type: Schema.Types.ObjectId, ref: &apos;Story&apos; &#125;]</div><div class="line">&#125;);</div><div class="line">var storySchema = Schema(&#123;</div><div class="line">  _creator : &#123; type: Number, ref: &apos;Person&apos; &#125;,</div><div class="line">  title    : String,</div><div class="line">  fans     : [&#123; type: Number, ref: &apos;Person&apos; &#125;]</div><div class="line">&#125;);</div><div class="line">var Story  = mongoose.model(&apos;Story&apos;, storySchema);</div><div class="line">var Person = mongoose.model(&apos;Person&apos;, personSchema);</div><div class="line"></div><div class="line">var aaron = new Person(&#123; _id: 0, name: &apos;Aaron&apos;, age: 100 &#125;);</div><div class="line">aaron.save(function (err) &#123;</div><div class="line">  if (err)  console.error( err );</div><div class="line">  var story1 = new Story(&#123;</div><div class="line">    title: &quot;Once upon a timex.&quot;,</div><div class="line">    _creator: aaron._id    // assign the _id from the person</div><div class="line">  &#125;);</div><div class="line">  story1.save(function (err) &#123;</div><div class="line">    if (err) return false;</div><div class="line">    // thats it!</div><div class="line">  &#125;)</div><div class="line"> &#125;)</div><div class="line"></div><div class="line">Story.find(&#123;&#125;)</div><div class="line">// .populate(&apos;_creator&apos;)</div><div class="line">.populate(&#123;</div><div class="line">  path: &apos;fans&apos;,</div><div class="line">  match: &#123; age: &#123; $gte: 21 &#125;&#125;,</div><div class="line">  select: &apos;name -_id&apos;,</div><div class="line">  options: &#123; limit: 1 &#125;</div><div class="line">&#125;)</div><div class="line">.exec(function (err,result) &#123;</div><div class="line">	if(err) console.log(err);</div><div class="line">	console.log(result)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nodejs/" rel="tag">#nodejs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/24/live0124/" rel="next" title="开年2017第一个月">
+                <i class="fa fa-chevron-left"></i> 开年2017第一个月
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/22/ie/" rel="prev" title="工作手记">
+                工作手记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/21/mongoose/"
+           data-title="mongoose api 翻译" data-url="http://new.chongblog.com/2017/03/21/mongoose/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="假装正在输入" />
+          <p class="site-author-name" itemprop="name">假装正在输入</p>
+          <p class="site-description motion-element" itemprop="description">Jser\nodejs\C\Python\知名扯淡专家\资深渣渣前端er</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用与连接数据库"><span class="nav-number">1.</span> <span class="nav-text">引用与连接数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#schema"><span class="nav-number">2.</span> <span class="nav-text">schema</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-number">2.1.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Virtuals"><span class="nav-number">2.2.</span> <span class="nav-text">Virtuals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置属性-options"><span class="nav-number">2.3.</span> <span class="nav-text">配置属性(options)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#option-autoIndex"><span class="nav-number">2.3.1.</span> <span class="nav-text">option: autoIndex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-bufferCommands"><span class="nav-number">2.3.2.</span> <span class="nav-text">option: bufferCommands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-capped"><span class="nav-number">2.3.3.</span> <span class="nav-text">option: capped</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-collection"><span class="nav-number">2.3.4.</span> <span class="nav-text">option: collection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#option-id-id"><span class="nav-number">2.3.5.</span> <span class="nav-text">option: id/_id</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SchemaTypes"><span class="nav-number">2.4.</span> <span class="nav-text">SchemaTypes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部分api"><span class="nav-number">2.5.</span> <span class="nav-text">部分api</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">假装正在输入</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chongblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
